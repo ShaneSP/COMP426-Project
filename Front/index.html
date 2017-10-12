@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TournyOrgo</title>
+    <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body id="top">
+
+<div class="div-white" id="intro">
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <button onclick="signOut();">Sign out</button>
+</div>
+<div class="div-gray" id="events">
+    <h1>This hasnt been laid out yet</h1>    <h1>no worries, ill make a template type deal we can follow</h1>
+</div>
+<div class="div-white" id="about">
+    <h1>More content just to show off the scrolling</h1>
+</div>
+
+
+<nav id="navBar">
+    <ul>
+        <li id="navName">Name/Logo</li>
+        <li class="highlight"> <a class="active" href="#top">Home</a></li>
+        <li class="highlight"> <a href="#events">Events</a></li>
+        <li class="highlight"> <a href="#about">About</a></li>
+        <li> <a class="login" href="#">Login</a> </li>
+    </ul>
+</nav>
+</body>
+</html>
