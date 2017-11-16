@@ -1,0 +1,18 @@
+{
+  "name": "comp426-project",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "pull": "git pull origin master && npm install",
+    "commit": "git add --all && git commit -m"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "django":"^0.5.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "react":"^16.0.0"
+  }
+}
