@@ -44,7 +44,14 @@ html {
 #navName{
     padding-right: 15px;
     padding-left: 15px;
+    padding-top: 15px;
     font-size: 1.5em;
+}
+nav ul .right {
+    float: right;
+}
+nav ul .g-signin2 {
+    padding-top: 15px;
 }
 
 ul {
@@ -55,7 +62,6 @@ ul {
     border: 1px solid #e7e7e7;
     background-color: #f3f3f3;
     opacity: .97;
-    display: flex;
     align-items: center;
 }
 
