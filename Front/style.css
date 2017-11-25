@@ -41,12 +41,6 @@ html {
     top: 0;
     font-weight: lighter;
 }
-#navName{
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 15px;
-    font-size: 1.5em;
-}
 nav ul .right {
     float: right;
 }
