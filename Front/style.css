@@ -122,6 +122,24 @@ div.div-white, div.div-gray{
     padding-bottom: 75px;
 }
 
+.information {
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 80px;
+}
+.leftBlock a, .rightBlock a {
+    color: inherit;
+    text-decoration: none;
+}
+.leftBlock {
+    float: left;
+    padding-left: 20px;
+}
+.rightBlock {
+    float: right;
+    padding-right: 20px;
+}
+
 .div-darkGray {
     width: 100%;
     background-color: #7F7F7F;
