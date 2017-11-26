@@ -41,6 +41,13 @@ html {
     top: 0;
     font-weight: lighter;
 }
+#navImage {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+#neopetAvatar {
+    vertical-align: top;
+}
 nav ul .right {
     float: right;
 }
