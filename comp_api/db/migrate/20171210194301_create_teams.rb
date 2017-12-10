@@ -7,7 +7,7 @@ class CreateTeams < ActiveRecord::Migration[5.1]
       t.integer :playerThreeID
       t.integer :playerFourID
       t.integer :playerFiveID
-      t.integer :tournamentPlayedID
+      t.integer :tournament_id #Tournament Organizer's ID
       t.integer :gamesWon
       t.integer :gamesPlayed
 

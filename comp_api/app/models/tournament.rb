@@ -3,6 +3,6 @@ class Tournament < ApplicationRecord
     belongs_to      :player
     has_many        :teams
     has_many        :games
-    has_many        :players        :through => :teams
+    has_many        :players,        :through => :teams
 
 end
