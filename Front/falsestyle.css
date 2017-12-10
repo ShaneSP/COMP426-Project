@@ -7,7 +7,6 @@ body {
     background-color: white;
     padding: 0;
     margin: 0;
-    padding-top: 10px;
 }
 
 html {
@@ -31,7 +30,7 @@ html {
 #navBar{
     width: 100%;
     position: fixed;
-    height: 30px;
+    height: 60px;
     line-height: 30px;
     top: 0;
     font-weight: lighter;
@@ -98,14 +97,13 @@ li a.active:hover {
 }
 
 
-
 li.login {
     float: right;
 }
 
-div.div-white, div.div-gray{
-    min-height: 900px;
+div.div-white{
     width: 100%;
+    min-height: 800px;
 }
 .div-white {
     background-color: #ffffff;
@@ -113,7 +111,7 @@ div.div-white, div.div-gray{
 }
 
 .div-gray {
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     padding-bottom: 75px;
 }
 
@@ -121,6 +119,7 @@ div.div-white, div.div-gray{
     text-align: center;
     padding-top: 25px;
     padding-bottom: 80px;
+    padding-right: 5px;
 }
 .leftBlock a, .rightBlock a {
     color: inherit;
@@ -142,6 +141,7 @@ div.div-white, div.div-gray{
 
 div#carousel1{
     width: 768px;
+    margin: 15px;
 }
 
 div.item h5{
@@ -190,4 +190,8 @@ div#about{
     height: 100%;
     image-rendering: -webkit-optimize-contrast;
     font-size: 6vw;
+}
+
+div.div-grey#events{
+    min-height: 780px;
 }
