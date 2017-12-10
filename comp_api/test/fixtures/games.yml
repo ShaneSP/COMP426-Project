@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blueTeamID: 1
+  redTeamID: 1
+  tournamentID: 1
+  gameWinner: 1
+
+two:
+  blueTeamID: 1
+  redTeamID: 1
+  tournamentID: 1
+  gameWinner: 1

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstName: MyString
+  lastName: MyString
+  summonerName: MyString
+  password: MyString
+  tournamentsPlayed: 1
+  tournamentsWon: 1
+  gamesPlayed: 1
+  gamesWon: 1
+
+two:
+  firstName: MyString
+  lastName: MyString
+  summonerName: MyString
+  password: MyString
+  tournamentsPlayed: 1
+  tournamentsWon: 1
+  gamesPlayed: 1
+  gamesWon: 1
