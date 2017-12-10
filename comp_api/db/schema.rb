@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171210194314) do
   create_table "tournaments", force: :cascade do |t|
     t.integer "tournamentWinnerID"
     t.string "tournamentName"
-    t.integer "tournamentOrganizerID"
+    t.integer "player_id" #this is the organizer ID
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
