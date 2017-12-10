@@ -9,14 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel": "^6.23.0",
-    "django": "^0.5.1",
-    "dragula": "^3.7.2",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "sass": "^1.0.0-beta.4"
+    "react-dom": "^16.1.1"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "react-draggable": "^3.0.4",
+    "typescript": "^2.6.2"
   }
 }
