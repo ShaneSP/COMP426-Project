@@ -30,10 +30,28 @@ class AccountManagerController < ApplicationController
     if (params.has_key?(:username) &&
       params[:username].length > 2 &&
       params[:username].length < 17 &&
-        Player.where(summonerName: params[:username]).first.nil?)
+      Player.where(summonerName: params[:username]).first.nil?)
         render json: 0
     else
       render json: 1
+    end
+  end
+  def get_user_information
+    if (params.has_key?(:username) &&
+        !Player.where(summonerName: params[:username]).first.nil?)
+      @user = Player.where(summonerName: params[:username]).first
+      info = {
+        summonerName: @user.summonerName,
+        firstName: @user.firstName,
+        lastName: @user.lastName,
+        gamesPlayed: @user.gamesPlayed,
+        gamesWon: @user.gamesWon,
+        tournamentsPlayed: @user.tournamentsPlayed,
+        tournamentsWon: @user.tournamentsWon
+      }
+      render json: info
+    else
+      render json: "User not found"
     end
   end
 end
