@@ -1,0 +1,2 @@
+class PlayersAndTeam < ApplicationRecord
+end
