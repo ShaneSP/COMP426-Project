@@ -2,6 +2,9 @@ class Player < ApplicationRecord
     after_initialize    :defaults
 
     ##Relationships
+    has_many        :teams
+    has_many        :tournaments
+    has_many        :games          :through => :teams
 
     def defaults
         unless persisted?
