@@ -39,11 +39,6 @@ ActiveRecord::Schema.define(version: 20171210194314) do
 
   create_table "teams", force: :cascade do |t|
     t.string "teamName"
-    t.integer "playerOneID"
-    t.integer "playerTwoID"
-    t.integer "playerThreeID"
-    t.integer "playerFourID"
-    t.integer "playerFiveID"
     t.integer "tournament_id" #Tournament that the team is participating in
     t.integer "gamesWon"
     t.integer "gamesPlayed"
