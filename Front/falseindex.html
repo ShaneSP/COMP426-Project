@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TournyOrgo</title>
+    <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">
+
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="falsestyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+
+</head>
+<body>
+<div id = "container">
+    <nav id="navBar">
+        <ul>
+            <li id="navName">
+                <a id = "navImage" href = "index.html">
+                    <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
+                </a>
+            </li>
+            <li class="highlight"> <a id="toptab" class="active" href="#top">Home</a></li>
+            <li class="highlight"> <a id="toptab" href="#events">Events</a></li>
+            <li class="highlight"> <a id="toptab" href="#about">About</a></li>
+            
+            <li class = "right" id = "signout"> <a id="toptab" class="signout" href="#">Sign Out</a> </li>
+            <li class = "right" id = "login"> <a id="toptab" class="login" href="#">Login</a> </li>
+            <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div> </li>
+        </ul>
+    </nav>
+
+    <div id = "content">
+        <div class="div-white" id="intro">
+            <h1>kmproductions presents</h1>
+            <div class="background">
+                #PLEASECOMEUPWITHANAME
+            </div>
+        </div>
+        
+        <div class="div-gray" id="events">
+            <div class = "leftBlock">
+                <!-- Carousel -->
+                <div id="carousel1" class="carousel slide carousel-fade hoverable0">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner z-depth-2" role="listbox">
+
+                        <!-- First slide -->
+                        <div class="item active">
+                            <div class="view overlay hm-blue-slight">
+                                <a><img src="assets/carousel3_resize2.jpg" class="img-responsive" alt="slide1">
+                                    <div class="mask waves-effect waves-light"></div>
+                                </a>
+                                <div class="carousel-caption hidden-xs">
+                                    <div class="animated fadeInDown">
+                                        <h5>Play Together with Friends</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Second slide -->
+                        <div class="item">
+                            <div class="view overlay hm-blue-slight">
+                                <a><img src="assets/carousel1_resize.jpg" class="img-responsive" alt="slide2">
+                                    <div class="mask waves-effect waves-light"></div>
+                                </a>
+                                <div class="carousel-caption hidden-xs">
+                                    <div class="animated fadeInDown">
+                                        <h5>Participate in Themed Events</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Third slide -->
+                        <div class="item">
+                            <div class="view overlay hm-blue-slight">
+                                <a><img src="assets/carousel2_resize2.jpg" class="img-responsive" alt="slide3">
+                                    <div class="mask waves-effect waves-light"></div>
+                                </a>
+                                <div class="carousel-caption hidden-xs">
+                                    <div class="animated fadeInDown">
+                                        <h5>Immerse Yourself in the Worldwide Sensation</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control new-control" href="#carousel1" role="button" data-slide="prev">
+                        <span class="fa fa fa-angle-left waves-effect waves-light"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control new-control" href="#carousel1" role="button" data-slide="next">
+                        <span class="fa fa fa-angle-right waves-effect waves-light"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <script>
+                $('.carousel').carousel();
+            </script>
+
+            <div class = "information">
+                <h3>
+                    Looking to participate? Looking to host?
+                </h3>
+                <div>
+                    Don't worry, we've got you covered!
+                </div>
+                <div id="hostcontent">
+                    League of Legends was released in 2009 and has now grown into the world's most popular MOBA game.
+                    It has inspired millions of players to come together and host their own tournaments that bring together people and community.
+
+                    Participating in or hosting a local tournament may seem daunting, but it's actually much closer to becoming reality than you could expect! Click below to access helpful tools to bring your own tournament dreams to life, or to find a tournament to particiapte in.
+                </div>
+            </div>
+            <div class = "content">
+                <div class = "leftBlock" style="padding-left: 5px;">
+                    <a class="btn btn-primary waves-effect waves-light" href = "tournamentSearch.html">
+                        Take a look at current tournaments!
+                    </a>
+                </div>
+                <div class = "rightBlock">
+                    <a class="btn btn-warning waves-effect waves-light" href = "tournamentCreation.html">
+                        Or...host your own!
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="div-white" id="about">
+        </div>
+    </div>
+
+    <div id = "footer">
+        <div class = "div-darkGray" id = "contact">
+            <h1>Contact us!</h1>
+            Copyright &copy KMProductions, 2017
+        </div>
+    </div>
+</div>
+</body>
+</html>
