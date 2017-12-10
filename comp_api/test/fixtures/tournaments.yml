@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tournamentWinnerID: 1
+  tournamentName: MyString
+  tournamentOrganizerID: 1
+
+two:
+  tournamentWinnerID: 1
+  tournamentName: MyString
+  tournamentOrganizerID: 1

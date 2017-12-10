@@ -10,14 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171210013800) do
+ActiveRecord::Schema.define(version: 20171210194314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
+  create_table "games", force: :cascade do |t|
+    t.integer "blueTeamID"
+    t.integer "redTeamID"
+    t.integer "tournamentID"
+    t.integer "gameWinner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "firstName"
+    t.string "lastName"
+    t.string "summonerName"
     t.string "password"
+    t.integer "tournamentsPlayed"
+    t.integer "tournamentsWon"
+    t.integer "gamesPlayed"
+    t.integer "gamesWon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "teamName"
+    t.integer "playerOneID"
+    t.integer "playerTwoID"
+    t.integer "playerThreeID"
+    t.integer "playerFourID"
+    t.integer "playerFiveID"
+    t.integer "tournamentPlayedID"
+    t.integer "gamesWon"
+    t.integer "gamesPlayed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.integer "tournamentWinnerID"
+    t.string "tournamentName"
+    t.integer "player_id" #this is the organizer ID
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
