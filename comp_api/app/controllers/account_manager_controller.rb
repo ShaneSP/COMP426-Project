@@ -13,7 +13,10 @@ class AccountManagerController < ApplicationController
       @user.save
       render json: @user
     else
-      render json: "Failed to create user, either exists or bad format. required format is create_user?username=RichardBaybaay&password=passgoeshere&firstname=Richard&lastname=Lang"
+      response = {
+        text: "Failed to create user, either exists or bad format. required format is create_user?username=RichardBaybaay&password=passgoeshere&firstname=Richard&lastname=Lang"
+      }
+      render json: response
     end
   end
   def login
