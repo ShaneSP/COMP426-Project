@@ -1,0 +1,1 @@
+{div, p} = React.DOM
