@@ -1,31 +1,10 @@
-body {
-    color: #202020;
-    font-family: -apple-system, BlinkMacSystemFont, "Roboto",
-    "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-    background-color: white;
-    padding: 0;
-    margin: 0;
-}
 
 html {
     height: 90%;
 
 }
 
-.paralaxTemp{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-attachment: fixed;
-    background-position: top;
-    background-size: cover;
-    height: 100%;
-    image-rendering: -webkit-optimize-contrast;
-    color: #ffffff;
-}
+
 
 #navBar{
     width: 100%;
@@ -93,9 +72,10 @@ li a.active:hover {
     text-decoration: none;
 }
 
-#wrapper {
-    margin-top: 60px;
-    right: 44.5%;
+
+body    {
+    display: flex;
+    flex-direction: column;
 }
 #submit_button {
     position: absolute;

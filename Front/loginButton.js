@@ -8,7 +8,7 @@ var loginButton = function(wrapper) {
     "<form id=\"firstName\" class =\"wrapper_child\"> First Name: <br> <input type=\"text\" name= \"First Name\" class = \"req_fir_name\"><br></form>\n" +
     "</div>");
     var last_name_form = $("<div>   \n" +
-    "<form id=\"lastName\" class =\"wrapper_child\"> First Name: <br> <input type=\"text\" name= \"First Name\" class = \"req_las_name\"><br></form>\n" +
+    "<form id=\"lastName\" class =\"wrapper_child\"> Last Name: <br> <input type=\"text\" name= \"First Name\" class = \"req_las_name\"><br></form>\n" +
     "</div>");
     var password_form = $("<div>   \n"  +
     "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"text\" name= \"Password\" class = \"req_password\"><br></form> \n" +
