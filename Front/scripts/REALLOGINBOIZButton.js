@@ -42,8 +42,19 @@ var REALLOGINBOIZButton = function(wrapper) {
         console.log(req_summoner_name);
         console.log(req_password);
         
-        return(req_summoner_name);
-        return(req_password);
+        $.ajax({
+            url: 'http://localhost:3000/create_user?username=' + req_summoner_name +'&password=' + req_password + '&firstname=' + req_first_name +'&lastname=' + req_last_name,
+            success: function(e){
+              if(e.status == true)  {
+              alert("login successful");
+              return(req_summoner_name);
+              return(req_password);
+            } else if(e.status == false)    {
+              alert("login attempt failed, invalid summoner name or password");
+              return false;
+            }
+          });
+        
       
         $(summoner_name_form).find('.req_sum_name').val("");
         $(password_form).find('.req_password').val("");
