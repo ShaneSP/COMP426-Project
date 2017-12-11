@@ -1,15 +1,23 @@
 class AccountManagerController < ApplicationController
   def create_user
+    # command = "
+    #   SELECT P.first_name, T.team_name
+    #   FROM players P, players_and_teams PAT, teams T
+    #   WHERE P.id = PAT.player_id AND PAT.team_id = T.id"
+    #
+    # records_array = ActiveRecord::Base.connection.execute(command)
+    # render json: records_array
+
     if (params.has_key?(:username) &&
        params.has_key?(:password) &&
        params.has_key?(:firstname) &&
        params.has_key?(:lastname) &&
-       Player.where(summonerName: params[:username]).count == 0)
+       Player.where(summoner_name: params[:username]).count == 0)
       @user = Player.new
-      @user.summonerName = params[:username]
+      @user.summoner_name = params[:username]
       @user.password = params[:password]
-      @user.firstName = params[:firstname]
-      @user.lastName = params[:lastname]
+      @user.first_name = params[:firstname]
+      @user.last_name = params[:lastname]
       @user.save
       render json: @user
     else
@@ -22,8 +30,8 @@ class AccountManagerController < ApplicationController
   def login
     if (params.has_key?(:username) &&
        params.has_key?(:password) &&
-       !Player.where(summonerName: params[:username]).select(:password).first.nil? &&
-       Player.where(summonerName: params[:username]).select(:password).first.password == params[:password])
+       !Player.where(summoner_name: params[:username]).select(:password).first.nil? &&
+       Player.where(summoner_name: params[:username]).select(:password).first.password == params[:password])
       render json: "Login success"
     else
       render json: "Login failed"
@@ -33,7 +41,7 @@ class AccountManagerController < ApplicationController
     if (params.has_key?(:username) &&
       params[:username].length > 2 &&
       params[:username].length < 17 &&
-      Player.where(summonerName: params[:username]).first.nil?)
+      Player.where(summoner_name: params[:username]).first.nil?)
         render json: 0
     else
       render json: 1
@@ -41,16 +49,16 @@ class AccountManagerController < ApplicationController
   end
   def get_user_information
     if (params.has_key?(:username) &&
-        !Player.where(summonerName: params[:username]).first.nil?)
-      @user = Player.where(summonerName: params[:username]).first
+        !Player.where(summoner_name: params[:username]).first.nil?)
+      @user = Player.where(summoner_name: params[:username]).first
       info = {
-        summonerName: @user.summonerName,
-        firstName: @user.firstName,
-        lastName: @user.lastName,
-        gamesPlayed: @user.gamesPlayed,
-        gamesWon: @user.gamesWon,
-        tournamentsPlayed: @user.tournamentsPlayed,
-        tournamentsWon: @user.tournamentsWon
+        summoner_name: @user.summoner_name,
+        first_name: @user.first_name,
+        last_name: @user.last_name,
+        games_played: @user.games_played,
+        games_won: @user.games_won,
+        tournaments_played: @user.tournaments_played,
+        tournaments_won: @user.tournaments_won
       }
       render json: info
     else
