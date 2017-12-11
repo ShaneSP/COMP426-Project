@@ -67,7 +67,8 @@ li {
 
 li a {
     display: block;
-    color: inherit;
+    color: black;
+    font-size: 20px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -112,13 +113,12 @@ div.div-white{
 
 .div-gray {
     background-color: #ffffff;
-    padding-bottom: 75px;
 }
 
 .information {
     text-align: center;
     padding-top: 25px;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
     padding-right: 5px;
 }
 .leftBlock a, .rightBlock a {
@@ -176,7 +176,7 @@ div.background {
   filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
-div#about{
+div#image1{
     background-image: url("https://am-a.akamaihd.net/image?f=https://news-a.akamaihd.net/public/images/wallpapers/esports/worlds/2017/Worlds_CYL_Wallpaper_1900x1200.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -189,9 +189,42 @@ div#about{
     background-size: cover;
     height: 100%;
     image-rendering: -webkit-optimize-contrast;
-    font-size: 6vw;
 }
 
-div.div-grey#events{
-    min-height: 780px;
+span.glyphicon{
+    color: #95999f;
+}
+
+div#content h1, h3{
+    text-align: center;
+}
+
+div#footercontact{
+    float: left;
+    margin-left: 5px;
+}
+
+div#footerinfo{
+    float: right;
+    margin-right: 5px;
+}
+
+div#eventscontent{
+    margin: 10px;
+}
+
+div#image2{
+    background-image: url("https://na.leagueoflegends.com/sites/default/files/upload/art/teambuilder-wallpaper.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+    height: 100%;
+    image-rendering: -webkit-optimize-contrast;
+    font-size: 6vw;
 }
