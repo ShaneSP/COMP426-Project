@@ -9,8 +9,13 @@ ol, ul {
     list-style: none; 
 }
 
-ol li {
+ol ul, ol li {
+    margin-top: 10px;
+    margin-bottom: 10px;
     position: relative;
+}
+
+ol ul {
     left: 15%;
 }
 
@@ -25,6 +30,7 @@ ol li {
 .btn-t {
     margin-bottom: 3px;
     width: 210px;
+    height: 30px;
     line-height: 38px;
     border-radius: 10px;
     font-size: 24px;
@@ -32,7 +38,6 @@ ol li {
 }
 
 .btn-b {
-    margin-bottom: 30px;
     background: #75FF33;
     border-radius: 10px;
     width: 210px;
