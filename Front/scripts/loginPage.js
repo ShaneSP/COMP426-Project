@@ -3,10 +3,10 @@ $(document).ready(function () {
 });
 
 var REALLOGINBOIZButton = function(wrapper) {
-    var summoner_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px;\">" +
+    var summoner_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
         "<input type=\"text\" class=\"form-control req_sum_name\" placeholder=\" Username\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
         "</div>" + "</div>");
-    var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px;\">" +
+    var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
         "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
         "</div>" + "</div>");6
     $(wrapper).append(summoner_name_form, password_form);

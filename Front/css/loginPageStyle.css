@@ -109,11 +109,11 @@ li a.active:hover {
 
 div.leftBlock {
     float: left;
-    width: 500px;
+    width: 450px;
 }
 div.rightBlock {
     float: right;
-    width: 1000px;
+    width: 850px;
 }
 
 div.content{
