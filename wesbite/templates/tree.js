@@ -1,32 +1,84 @@
-var Tree = function(fen, container) {
-    var Current = {
-        ROUND : 1,
-        GAME : 1,
-        PLAYER : 1,
-        FEN : fen
-    }
-
-    var Bracket = {
-        ROUNDSTART : "<ul class=\"round-"+Current.ROUND+"\">",
-        GAME : "<li class=\"game-"+Current.GAME+"\">\n" +
-               "    <div class=\"droppable btn-t\"></div>\n",
-        GAMEEND : "    <div class=\"droppable btn-b\"></div>\n" +
-                  "</li>\n",
-        ROUNDEND : "</ul>\n"
-    }
-
-    $(container).append("<ol>\n");
-
-    $(container).append(build(Current.FEN));
-
-    $(container).append("</ol>");
-
+var Current = {
+    ROUND : 0,
+    GAME : 0,
+    RLIST : []
 }
 
-Tree.prototype.build = function(fen) {
-    if(fen.length == 0) {
-        return "";
-    } else if(Current.GAME < Math.pow(2, Math.log2(fen.length)) - 1) {
-        //We have more games to add, logic may be off by a little. This doesn't seem like a valid base case.
+var Bracket = {
+    ROUNDSTART : "<div class=\"round-"+Current.ROUND+"\">",
+    EGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+            "    <div class=\"droppable btn-t\"></div>\n" +
+            "    <div class=\"droppable btn-b\"></div>\n" +
+            "</div>\n",
+    PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+            "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
+            "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
+            "</div>\n",
+    RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+            "    <div class=\"droppable btn-t\"></div>\n" +
+            "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
+            "</div>\n",
+    BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+            "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
+            "    <div class=\"droppable btn-b\"></div>\n" +
+            "</div>\n",
+    ROUNDEND : "</div>\n"
+};
+
+var update = function () {
+    Bracket = {
+        ROUNDSTART : "<div class=\"round-"+Current.ROUND+"\">\n",
+        EGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"></div>\n" +
+                "    <div class=\"droppable btn-b\"></div>\n" +
+                "</div>\n",
+        PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
+                "</div>\n",
+        RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"></div>\n" +
+                "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
+                "</div>\n",
+        BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"></div>\n" +
+                "</div>\n",
+        ROUNDEND : "</div>\n"
+    };
+}
+
+var Tree = function(fen, container) {
+    
+    Current.RLIST = fen.split("/");
+    var rounds = Current.RLIST.length;
+    var teams = fen.length - Current.RLIST.length + 2;
+    var games = fen.length - Current.RLIST.length + 1;
+
+    var output = "";
+
+    console.log("Rounds: " + rounds + ", Teams: " + teams + ", Games: " + games);
+    for(var i = 0; i < rounds; i++) {
+        output+=Bracket.ROUNDSTART;
+        for(var j = 0; j < Current.RLIST[Current.ROUND].length; j++) {
+            switch (Current.RLIST[Current.ROUND][j]) {
+                case 'n': output += Bracket.PGAME;
+                break;
+                case 'r': output += Bracket.RGAME;
+                break;
+                case 'b': output += Bracket.BGAME;
+                break;
+                case 'e': output += Bracket.EGAME;
+                break;
+            }
+            Current.GAME++;
+            update();
+        }
+        output += Bracket.ROUNDEND;
+        Current.ROUND++;
+        update();
     }
+
+    $(container).empty();
+    $(container).append(output);
 }
