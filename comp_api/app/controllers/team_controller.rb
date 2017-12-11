@@ -68,12 +68,16 @@ class TeamController < ApplicationController
               WHERE P.summoner_name = '#{name}'
               "
               player_id = ActiveRecord::Base.connection.execute(command)[0]["id"]
-              render json: player_id
+              
+              if(PlayersAndTeam.where(team_id: team_id, player_id: player_id).count == 0)
                 @registration = PlayersAndTeam.new
                 @registration.team_id = team_id
                 @registration.player_id = player_id
                 @registration.save
-                #render json: @registration
+                render json: @registration
+              else
+                render json: {status: false}
+              end
             end
         end
     end
