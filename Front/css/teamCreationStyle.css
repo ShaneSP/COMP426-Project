@@ -47,6 +47,14 @@
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+#team1nameform {
+    width: 200px;
+}
+#req_team_name  {
+    border: wheat;
+    border-style: line;
+    border-width: 3px;
+}
 body {
     color: #202020;
     font-family: -apple-system, BlinkMacSystemFont, "Roboto",

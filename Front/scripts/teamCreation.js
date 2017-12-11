@@ -6,15 +6,19 @@ function player2Function()  {
     document.getElementById("player2").classList.toggle("show");
 }
 
+
 function player3Function()  {
     document.getElementById("player3").classList.toggle("show");
 }
-// Close the dropdown menu if the user clicks outside of it
 
-$("button[class*=dropbtn]").on("mouseclick", function() {
-    console.log("test");
-    $(this).toggleClass("show");
-});
+function player4Function()  {
+    document.getElementById("player4").classList.toggle("show");
+}
+
+function player5Function()  {
+    document.getElementById("player5").classList.toggle("show");
+}
+// Close the dropdown menu if the user clicks outside of it
 
 // $("div[class*=team-]")
 
@@ -29,4 +33,4 @@ window.onclick = function(event) {
       }
     }
   } 
-}
+  }
