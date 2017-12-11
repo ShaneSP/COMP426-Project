@@ -13,12 +13,15 @@ var REALLOGINBOIZButton = function(wrapper) {
         a.preventDefault();
         login_button.onclick(a);
     });
+
     password_form.on("submit", function(a){
         a.preventDefault();
         login_button.onclick(a);
     });
+
     login_button.onclick = function (e)   {
         e.preventDefault();
+
         var req_summoner_name = $(summoner_name_form).find('.req_sum_name').val();
         var req_password = $(password_form).find('.req_password').val();
      
@@ -43,7 +46,7 @@ var REALLOGINBOIZButton = function(wrapper) {
         console.log(req_password);
         
         $.ajax({
-            url: 'http://localhost:3000/create_user?username=' + req_summoner_name +'&password=' + req_password + '&firstname=' + req_first_name +'&lastname=' + req_last_name,
+            url: 'http://localhost:3000/create_user?username=' + req_summoner_name +'&password=' + req_password,
             success: function(e){
               if(e.status == true)  {
               alert("login successful");
@@ -53,6 +56,7 @@ var REALLOGINBOIZButton = function(wrapper) {
               alert("login attempt failed, invalid summoner name or password");
               return false;
             }
+        }
           });
         
       
