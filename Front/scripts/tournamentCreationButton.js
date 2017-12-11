@@ -37,6 +37,12 @@ var tournamentCreationButton = function(wrapper) {
         console.log(req_tournament_name);
         console.log(req_organizer);
         
+        $.ajax({
+            url: 'http://localhost:3000/create_tournament?tournament_name=' + req_tournament_name +'&summoner_name=' + req_organizer,        
+            success: function(e){
+              alert("success");
+            }
+          });
 
         $(tournament_name_form).find('.req_tou_name').val("");
         $(organizer_form).find('.req_org_name').val("");
