@@ -41,7 +41,7 @@ var REALLOGINBOIZButton = function(wrapper) {
         
         console.log(req_summoner_name);
         console.log(req_password);
-
+        
         return(req_summoner_name);
         return(req_password);
       
