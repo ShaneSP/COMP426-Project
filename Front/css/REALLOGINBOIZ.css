@@ -14,7 +14,6 @@ html {
 
 }
 
-
 #navBar{
     width: 100%;
     position: fixed;
@@ -82,7 +81,7 @@ li a.active:hover {
 }
 
 #wrapper{
-    margin-top: 60px;
+    width: 800px;
 }
 .wrapper_child{
     text-align: center;
@@ -98,4 +97,21 @@ li a.active:hover {
     position: absolute;
     margin-top: 40px;
     right: 45.25%;
+}
+
+div.leftBlock {
+    float: left;
+    width: 400px;
+}
+div.rightBlock {
+    float: right;
+    margin-right: 250px;
+}
+
+div.content{
+    margin-top: 100px;
+}
+
+div h1{
+    text-align: center;
 }

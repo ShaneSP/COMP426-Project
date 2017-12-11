@@ -7,6 +7,17 @@
     <script src="scripts/REALLOGINBOIZButton.js"></script>
     <script src="scripts/REALLOGINBOIZ.js"></script>
     <link rel="stylesheet" href="css/REALLOGINBOIZ.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 </head>
     <body>
         <div id = "container">
@@ -20,12 +31,20 @@
                 </ul>
             </nav>
         </div>
-        <div id = "wrapper">
+        <div class="content">
+            <div class="leftBlock" style="display: inline;">
+                <img src="assets/riven.png" style="height: 100%; width: 100%;">
+            </div>
+            <div id="container" style="margin-top: 50px; position: relative;" class="rightBlock">
+                <h1>Welcome Summoner!</h1>
+                <div id = "wrapper">
+                </div>
+                <button id="login_button" type="button" class="btn btn-primary waves-effect waves-light" style="margin-left: 50px;"> 
+                        Log In
+                </button><br/>
+                <a id = "creation_hyperlink" href="loginPage.html" style="margin-left: 100px;">need to create a user?</a>
+            </div>
         </div>
-        <button id="login_button" type="button"> 
-                Log In
-                    </button>
-        <a id = "creation_hyperlink" href="loginPage.html">need to create a user?</a>
 
         <script>            
             console.log("this user is" + 'req_summoner_name');
@@ -36,3 +55,11 @@
         </script>
 </body>
 </html>
+
+<!--
+
+    "<div> \n" +
+    "<form id= \"summonerName\" class =\"wrapper_child\"> Summoner Name: <br> <input type=\"text\" name= \"Summoner Name\" class = \"req_sum_name\"><br></form>\n"+
+    "</div> "
+
+    -->

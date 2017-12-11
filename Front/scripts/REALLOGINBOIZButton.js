@@ -1,10 +1,10 @@
 var REALLOGINBOIZButton = function(wrapper) {
-    var summoner_name_form = $("<div> \n" +
-    "<form id= \"summonerName\" class =\"wrapper_child\"> Summoner Name: <br> <input type=\"text\" name= \"Summoner Name\" class = \"req_sum_name\"><br></form>\n"+
-    "</div> ");
-    var password_form = $("<div>   \n"  +
-    "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"text\" name= \"Password\" class = \"req_password\"><br></form> \n" +
-    "</div>");
+    var summoner_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px;\">" +
+        "<input type=\"text\" class=\"form-control req_sum_name\" placeholder=\" Username\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "</div>" + "</div>");
+    var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px;\">" +
+        "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "</div>" + "</div>");
     $(wrapper).append(summoner_name_form, password_form);
 
     var login_button = document.getElementById("login_button");
