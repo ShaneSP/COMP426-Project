@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-->
+    TESTING FOR FOREIGN PAGE KEY SUBMISSION AND SESSION STATE STORAGE
+</-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>#pleasecomeupwithaname</title>
+        <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">
+
+        <script src="scripts/jquery-3.2.1.min.js"></script>
+        <script src="scripts/script.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/falsestyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+
+    </head>
+    <body>
+        <button><a href="index.html">home</a></button>
+            <form>
+                <input type="text"><br>
+                <input type="button" value="Submit" id = "submit" onClick = "username_return()">
+            </form>
+        <div id="result"></div>
+        <script>
+            function username_return(){
+                localStorage.setItem("username", "Cielka");
+                localStorage.setItem("login_state", "Cielka");
+                localStorage.setItem("logout_state", "Log Out");
+            }
+
+            document.getElementById("result").innerHTML = localStorage.getItem("username");
+            document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
+            document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
+        </script>
+    </body>
+</html>

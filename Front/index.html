@@ -5,7 +5,7 @@
         <title>#pleasecomeupwithaname</title>
         <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">
 
-        <script src="jquery-3.2.1.min.js"></script>
+        <script src="scripts/jquery-3.2.1.min.js"></script>
         <script src="scripts/script.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
@@ -40,9 +40,9 @@
                     <li class="highlight"> <a id="toptab" href="#events"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
                     <li class="highlight"> <a id="toptab" href="#eventscontent"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Events</a></li>
                     
-                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sign Out</a> </li>
-                    <li class = "right" id = "login"> <a id="toptab" class="login" href="#"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</a> </li>
-                    <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div> </li>
+                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
+                    <li class = "right" id = "login"> <a id="toptab" class="login" href="#"><div id="login_result"></div></a></li>
+                    <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div></li>
                 </ul>
             </nav>
 
@@ -216,6 +216,7 @@
                         <br/>
                         <br/>  
                         <span class="glyphicon glyphicon-mail"></span>Contact Us
+                        <div id="result"></div>
                     </div>
                     <div id="footerinfo">
                         <br/>
@@ -246,7 +247,17 @@
                 
                 $('#back-to-top').tooltip('show');
 
-        });
+            });
+
+            function clear_state(){
+                localStorage.setItem("username", "");
+                localStorage.setItem("login_state", "Log In");
+                localStorage.setItem("logout_state", "");
+            }
+
+            document.getElementById("result").innerHTML = localStorage.getItem("username");
+            document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
+            document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
         </script>
     </body>
 </html>
