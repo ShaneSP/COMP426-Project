@@ -95,13 +95,11 @@ li a.active:hover {
 
 #wrapper {
     margin-top: 60px;
-    right: 44.5%;
+    text-align: center;
 }
 
-.wrapper_child {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-style: double;
-    width: 200px;
+#tournament_button {
+    position: absolute;
+    margin-top: 15px;
+    right: 45.75%;
 }

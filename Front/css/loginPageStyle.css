@@ -84,8 +84,7 @@ li a.active:hover {
 
 #wrapper{
     margin-top: 60px; 
-    border-style: double;
-    width: 200px;
+    text-align: center;
 }
 #submit_button {
     position: absolute;
@@ -95,7 +94,3 @@ li a.active:hover {
     height: 175px;
 }
 
-.wrapper_child {
-    text-align: center;
-
-}
