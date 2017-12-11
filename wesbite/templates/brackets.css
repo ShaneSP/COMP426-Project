@@ -1,0 +1,43 @@
+html, body, div, span, ol, ul, li, { 
+    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; 
+}
+body { 
+    line-height: 1; 
+}
+
+ol, ul { 
+    list-style: none; 
+}
+
+ol li {
+    position: relative;
+    left: 15%;
+}
+
+.team {
+    width: 210px;
+    height: 30px;
+    line-height: 38px;
+    border-radius: 10px;
+    background: #333;
+}
+
+.btn-t {
+    margin-bottom: 3px;
+    width: 210px;
+    line-height: 38px;
+    border-radius: 10px;
+    font-size: 24px;
+    background: #FF5733;
+}
+
+.btn-b {
+    margin-bottom: 30px;
+    background: #75FF33;
+    border-radius: 10px;
+    width: 210px;
+    height: 30px;
+    line-height: 38px;
+    font-size: 24px;
+}
+
