@@ -38,11 +38,12 @@
             </form>
         <div id="result"></div>
         <script>
+            
             function username_return(){
                 localStorage.setItem("username", "Cielka");
                 localStorage.setItem("login_state", "");
                 localStorage.setItem("logout_state", "Log Out");
-                localStorage.setItem("user_profile", "Cielka");
+                localStorage.setItem("user_profile", "Cielka")
             }
 
             document.getElementById("result").innerHTML = localStorage.getItem("username");
