@@ -4,14 +4,15 @@ class Player < ApplicationRecord
     ##Relationships
     has_many        :players_and_teams
     has_many        :tournaments
+    has_many        :teams,             :through => :players_and_teams,   :source => :teams
     has_many        :games,          :through => :teams
 
     def defaults
         unless persisted?
-            self.tournamentsWon||=0
-            self.tournamentsPlayed||=0
-            self.gamesWon||=0
-            self.gamesPlayed||=0
+            self.tournaments_won||=0
+            self.tournaments_played||=0
+            self.games_won||=0
+            self.games_played||=0
         end
     end
 end

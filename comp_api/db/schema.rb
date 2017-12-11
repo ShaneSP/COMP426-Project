@@ -16,23 +16,23 @@ ActiveRecord::Schema.define(version: 20171210225830) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer "blueTeamID"
-    t.integer "redTeamID"
-    t.integer "tournament_id" #Tournament that the game is a part of
-    t.integer "gameWinner"
+    t.integer "blue_team_id"
+    t.integer "red_team_id"
+    t.integer "tournament_id"
+    t.integer "game_winner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "firstName"
-    t.string "lastName"
-    t.string "summonerName"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "summoner_name"
     t.string "password"
-    t.integer "tournamentsPlayed"
-    t.integer "tournamentsWon"
-    t.integer "gamesPlayed"
-    t.integer "gamesWon"
+    t.integer "tournaments_played"
+    t.integer "tournaments_won"
+    t.integer "games_played"
+    t.integer "games_won"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,18 +45,18 @@ ActiveRecord::Schema.define(version: 20171210225830) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "teamName"
-    t.integer "tournament_id" #Tournament Organizer's ID
-    t.integer "gamesWon"
-    t.integer "gamesPlayed"
+    t.string "team_name"
+    t.integer "tournament_id"
+    t.integer "games_won"
+    t.integer "games_played"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tournaments", force: :cascade do |t|
-    t.integer "tournamentWinnerID"
-    t.string "tournamentName"
-    t.integer "player_id" #Tournament that the team is participating in
+    t.integer "tournament_winner_id"
+    t.string "tournament_name"
+    t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
