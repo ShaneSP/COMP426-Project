@@ -27,6 +27,14 @@ class TournamentController < ApplicationController
 
           result.push({tournament_name: t.tournament_name, summoner_name: Player.where(id: t.player_id).first.summoner_name})
         end
+
+        # command = "
+        # SELECT T.tournament_name, P.summoner_name
+        # FROM players P, tournaments T
+        # WHERE P.id = T.player_id
+        # "
+        # result =  = ActiveRecord::Base.connection.execute(command)
+
         render json: {result: result}
       end
 
