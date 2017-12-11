@@ -5,16 +5,44 @@ body {
     line-height: 1; 
 }
 
-ol, ul { 
-    list-style: none; 
-}
-
-ol li {
-    position: relative;
+#container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    padding: 10px;
+    width: 70%;
     left: 15%;
+    top: 15%;
 }
 
-.team {
+[class*="round-"] {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    float: left;
+    width: 15%;
+    /* height: 90%; */
+}
+
+.round-0 [class*="game-"] {
+    padding: 15px;
+}
+
+.round-1 [class*="game-"] {
+    padding: 60px;
+}
+
+.round-2 [class*="game-"] {
+    padding: 90px;
+}
+
+.round-3 [class*="game-"] {
+    padding: 120px;
+}
+
+[class*="team-"] {
     width: 210px;
     height: 30px;
     line-height: 38px;
@@ -25,6 +53,7 @@ ol li {
 .btn-t {
     margin-bottom: 3px;
     width: 210px;
+    height: 30px;
     line-height: 38px;
     border-radius: 10px;
     font-size: 24px;
@@ -32,7 +61,6 @@ ol li {
 }
 
 .btn-b {
-    margin-bottom: 30px;
     background: #75FF33;
     border-radius: 10px;
     width: 210px;

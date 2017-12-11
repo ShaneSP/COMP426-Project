@@ -1,3 +1,9 @@
+
+html {
+    height: 90%;
+
+}
+
 body {
     color: #202020;
     font-family: -apple-system, BlinkMacSystemFont, "Roboto",
@@ -7,11 +13,6 @@ body {
     background-color: white;
     padding: 0;
     margin: 0;
-}
-
-html {
-    height: 90%;
-
 }
 
 #navBar{
@@ -80,19 +81,26 @@ li a.active:hover {
     text-decoration: none;
 }
 
+
 #wrapper{
+<<<<<<< HEAD:Front/css/REALLOGINBOIZ.css
     width: 800px;
 }
 .wrapper_child{
+=======
+    margin-top: 60px; 
+>>>>>>> 7ecdc8cdb269a2117c9e0f8767a2fbb572c18e33:Front/css/userCreationStyle.css
     text-align: center;
 }
-
-#login_button {
+#submit_button {
     position: absolute;
     margin-top: 15px;
-    right: 48.5%;
+    right: 44.5%;
+    width: 175px;
+    height: 175px;
 }
 
+<<<<<<< HEAD:Front/css/REALLOGINBOIZ.css
 #creation_hyperlink {
     position: absolute;
     margin-top: 40px;
@@ -115,3 +123,5 @@ div.content{
 div h1{
     text-align: center;
 }
+=======
+>>>>>>> 7ecdc8cdb269a2117c9e0f8767a2fbb572c18e33:Front/css/userCreationStyle.css

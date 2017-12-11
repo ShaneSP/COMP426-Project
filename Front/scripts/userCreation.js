@@ -1,4 +1,6 @@
-
+$(document).ready(function () {
+    var loginPage = new loginButton($("#wrapper")[0]);
+});
 
 var loginButton = function(wrapper) {
     var summoner_name_form = $("<div> \n" +
@@ -11,7 +13,7 @@ var loginButton = function(wrapper) {
     "<form id=\"lastName\" class =\"wrapper_child\"> Last Name: <br> <input type=\"text\" name= \"First Name\" class = \"req_las_name\"><br></form>\n" +
     "</div>");
     var password_form = $("<div>   \n"  +
-    "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"text\" name= \"Password\" class = \"req_password\"><br></form> \n" +
+    "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"password\" name= \"Password\" class = \"req_password\"><br></form> \n" +
     "</div>");
     $(wrapper).append(summoner_name_form, first_name_form, last_name_form, password_form);
 

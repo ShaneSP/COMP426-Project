@@ -5,69 +5,17 @@
     <title>Hello World</title>
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript" src="tree.js"></script>
     <link rel="stylesheet" type="text/css" href="brackets.css"></link>
   </head>
   <body>
-    <div id="container">
-      <ol>
-        <li class="round one">
-          <div class="droppable btn-t"><div class="draggable team">One</div></div>
-          <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-          <ul class="round two">
-            <li class="div-1">
-              <div class="droppable btn-t"><div class="draggable team">One</div></div>
-              <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-              <ul class="round three">
-                <li class="conf-1">
-                  <div class="droppable btn-t"><div class="draggable team">One</div></div>
-                  <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-                  <ul class="round final">
-                    <li class="finalswest">
-                      <div class="droppable btn-t"><div class="draggable team">One</div></div>
-                      <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li> 
-          </ul>
-        </li>
-        <li class="round one">
-          <div class="droppable btn-t"><div class="draggable team">One</div></div>
-          <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-            <ul class="round two">
-              <li class="div-1">
-                <div class="droppable btn-t"><div class="draggable team">One</div></div>
-                <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-                <ul class="round three">
-                  <li class="conf-1">
-                    <div class="droppable btn-t"><div class="draggable team">One</div></div>
-                    <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li class="div-1">
-            <div class="droppable btn-t"><div class="draggable team">One</div></div>
-            <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-            <ul class="round three">
-              <li class="conf-1">
-                <div class="droppable btn-t"><div class="draggable team">One</div></div>
-                <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-              </li>
-            </ul>
-          </li>
-          <li class="conf-1">
-            <div class="droppable btn-t"><div class="draggable team">One</div></div>
-            <div class="droppable btn-b"><div class="draggable team">Two</div></div>
-          </li>
-        </ol>  
-      </div>
+    <div id="container"></div>
 
     <script>
       window.onload = function() {
-        $(".team").on("mouseover", function() {
+        var tree = new Tree("bbrbrbnn/rbnn/ee/e", $("#container")[0]);
+
+        $("div[class*=team-]").on("mouseover", function() {
           $(this).parent().css('width','240px');
         });
 

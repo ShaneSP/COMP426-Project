@@ -21,7 +21,7 @@ class AccountManagerController < ApplicationController
       @user.save
       render json: @user
     else
-      response = {
+      response = {status: false,
         text: "Failed to create user, either exists or bad format. required format is create_user?username=RichardBaybaay&password=passgoeshere&firstname=Richard&lastname=Lang"
       }
       render json: response
@@ -60,7 +60,17 @@ class AccountManagerController < ApplicationController
         tournaments_played: @user.tournaments_played,
         tournaments_won: @user.tournaments_won
       }
+
       render json: info
+
+      # command = "
+      # SELECT P.summoner_name, P.first_name, P.last_name, P.tournaments_played, P.tournaments_won, P.games_played, P.games_won
+      # FROM players P
+      # WHERE P.summoner_name = #{:username}
+      # "
+      # record = ActiveRecord::Base.connection.execute(command)
+      # render json: {result: record.first}
+
     else
       render json: "User not found"
     end

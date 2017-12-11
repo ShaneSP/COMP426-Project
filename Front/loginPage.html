@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <title> User Creation </title>
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/loginPage.js"></script>
-    <script src="scripts/loginButton.js"></script>
     <link rel="stylesheet" href="css/loginPageStyle.css">
 </head>
-<body>
-    <div id = "container">
-        <nav id="navBar" class="navbar-default navbar-fixed-top">
-            <ul>
-                <li id="navName">
-                    <a id = "navImage" href = "index.html">
-                        <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div id ="wrapper">
-    </div> 
-    <button id="submit_button" type="button"> 
-            Submit
-                </button>
+    <body>
+        <div id = "container">
+            <nav id="navBar" class="navbar-default navbar-fixed-top">
+                <ul>
+                    <li id="navName">
+                        <a id = "navImage" href = "index.html">
+                            <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id = "wrapper">
+        </div>
+        <button id="login_button" type="button"> 
+                Log In
+                    </button>
+        <a id = "creation_hyperlink" href="userCreation.html">need to create a user?</a>
 
+        <script>            
+            console.log("this user is" + 'req_summoner_name');
+            document.getElementById("result").innerHTML = localStorage.getItem("username");
+            document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
+            document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
+            document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
+        </script>
 </body>
+</html>
