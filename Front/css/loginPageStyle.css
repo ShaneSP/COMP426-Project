@@ -1,42 +1,15 @@
-body {
-    color: #202020;
-    font-family: -apple-system, BlinkMacSystemFont, "Roboto",
-    "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-    background-color: white;
-    padding: 0;
-    margin: 0;
-    padding-top: 75px;
-}
 
 html {
     height: 90%;
 
 }
 
-.paralaxTemp{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-attachment: fixed;
-    background-position: top;
-    background-size: cover;
-    height: 100%;
-    image-rendering: -webkit-optimize-contrast;
-    color: #ffffff;
-}
 
-
-.paralax1 {
-    /*background-image: url("images/36266061303_d1c485c4b1_o.jpg");*/
-}
 
 #navBar{
     width: 100%;
     position: fixed;
-    height: 30px;
+    height: 60px;
     line-height: 30px;
     top: 0;
     font-weight: lighter;
@@ -50,9 +23,6 @@ html {
 }
 nav ul .right {
     float: right;
-}
-nav ul .g-signin2 {
-    padding-top: 15px;
 }
 
 ul {
@@ -103,8 +73,22 @@ li a.active:hover {
 }
 
 
-
-li.login {
-    float: right;
+body    {
+    display: flex;
+    flex-direction: column;
+}
+#submit_button {
+    position: absolute;
+    margin-top: 15px;
+    right: 44.5%;
+    width: 175px;
+    height: 175px;
 }
 
+.wrapper_child {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: double;
+    width: 200px;
+}

@@ -215,7 +215,6 @@ div#eventscontent{
 
 div#image2{
     background-image: url("https://na.leagueoflegends.com/sites/default/files/upload/art/teambuilder-wallpaper.jpg");
-    background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
@@ -223,8 +222,7 @@ div#image2{
     flex-direction: column;
     background-attachment: fixed;
     background-position: top;
-    background-size: cover;
-    height: 100%;
+    background-size: 100%;
     image-rendering: -webkit-optimize-contrast;
-    font-size: 6vw;
+    height: 400px;
 }
