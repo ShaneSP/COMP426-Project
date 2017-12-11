@@ -50,30 +50,30 @@ class AccountManagerController < ApplicationController
   def get_user_information
     if (params.has_key?(:username) &&
         !Player.where(summoner_name: params[:username]).first.nil?)
-      # @user = Player.where(summoner_name: params[:username]).first
-      # info = {
-      #   summoner_name: @user.summoner_name,
-      #   first_name: @user.first_name,
-      #   last_name: @user.last_name,
-      #   games_played: @user.games_played,
-      #   games_won: @user.games_won,
-      #   tournaments_played: @user.tournaments_played,
-      #   tournaments_won: @user.tournaments_won
-      # }
-      #
-      # render json: info
+      @user = Player.where(summoner_name: params[:username]).first
+      info = {
+        summoner_name: @user.summoner_name,
+        first_name: @user.first_name,
+        last_name: @user.last_name,
+        games_played: @user.games_played,
+        games_won: @user.games_won,
+        tournaments_played: @user.tournaments_played,
+        tournaments_won: @user.tournaments_won
+      }
 
-      username = params[:username]
-      command = "
-      SELECT P.summoner_name, P.first_name, P.last_name, P.tournaments_played, P.tournaments_won, P.games_played, P.games_won
-      FROM players P
-      WHERE P.summoner_name = '#{username}'
-      "
-      record = ActiveRecord::Base.connection.execute(command)
-      render json: record.first
+      render json: info
+
+      # username = params[:username]
+      # command = "
+      # SELECT P.summoner_name, P.first_name, P.last_name, P.tournaments_played, P.tournaments_won, P.games_played, P.games_won
+      # FROM players P
+      # WHERE P.summoner_name = '#{username}'
+      # "
+      # record = ActiveRecord::Base.connection.execute(command)
+      # render json: record.first
 
     else
-      render json: "User not found"
+      render json: {status: false}
     end
   end
 
