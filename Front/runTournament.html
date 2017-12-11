@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tournaments</title>
+        <link rel="icon" type="image/gif" href="https://legacies.lol/img/L-icon.png">
+        <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">
+
+        <script src="scripts/jquery-3.2.1.min.js"></script>
+        <script src="scripts/script.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+        <script type="text/javascript" src="scripts/tree.js"></script>
+        <script type="text/javascript" src="scripts/fen.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/brackets.css"></link>
+
+        <link rel="stylesheet" type="text/css" href="css/falsestyle.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+
+    </head>
+    <body>
+        <div id = "container">
+            <nav id="navBar" class="navbar-default navbar-fixed-top">
+                <ul>
+                    <li id="navName">
+                        <a id = "navImage" href = "index.html">
+                            <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
+                        </a>
+                    </li>
+                    <li class="highlight"> <a id="toptab" class="active" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li class="highlight"> <a id="toptab" href="tournaments.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
+                    
+                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
+                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="user"></div></a></li>
+                    <li class = "right" id = "login"> <a id="toptab" class="login" href="loginPage.html"><div id="login_result"></div></a></li>
+                    <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div></li>
+                </ul>
+            </nav>
+
+            <div id = "content" style="margin-top: 80px;"></div>
+            <div id="container1"></div>
+
+            <!-- <div id = "footer">
+                <div class = "div-darkGray" id = "contact">
+                    <div id="footercontact">
+                        <br/>
+                        Logged in as: <div id="result" style="display: inline;"></div><br/>
+                        <span class="glyphicon glyphicon-envelope"></span>Contact Us
+                    </div>
+                    <div id="footerinfo">
+                        <br/>
+                        KMProductions&trade; 2017
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <script>
+            function clear_state(){
+                localStorage.setItem("username", "");
+                localStorage.setItem("login_state", "Log In");
+                localStorage.setItem("logout_state", "");
+                localStorage.setItem("user_profile", "");
+            }
+
+            document.getElementById("result").innerHTML = localStorage.getItem("username");
+            document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
+            document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
+            document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
+        </script>
+        <script>
+            window.onload = function() {
+              var fen = fenGen(16, 0);
+              var tree = new Tree(fen, $("#container1")[0]);
+              
+              $("div[class*=team-]").on("mouseover", function() {
+                $(this).parent().css('width','240px');
+              });
+      
+              $('div[class*=btn-]').on("mouseleave", function() {
+                $(this).css('width','210px');
+              });
+      
+              $(".draggable").draggable({
+                revert: true,
+                start: function(event, ui) {
+                  origin = event.target.parentNode;
+                }
+              });
+      
+              $(".droppable").droppable({
+                accept: ".draggable",
+                drop: function(event, ui) {
+                        if ($(this).children().length > 0) {
+                          var move = $(this).children().detach();
+                          $(ui.draggable).parent().append(move);
+                        }
+      
+                        $(this).append($(ui.draggable));
+      
+                        //update fen
+                      }
+              });
+      
+            };
+          </script>
+    </body>
+</html>
