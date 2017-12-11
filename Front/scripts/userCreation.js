@@ -1,4 +1,6 @@
-
+$(document).ready(function () {
+    var loginPage = new loginButton($("#wrapper")[0]);
+});
 
 var loginButton = function(wrapper) {
     var summoner_name_form = $("<div> \n" +
