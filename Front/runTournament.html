@@ -23,7 +23,7 @@
     </head>
     <body>
         <div id = "container">
-            
+
 
             <div id = "content" style="margin-top: 80px;"></div>
             <div id="container1"></div>
@@ -51,7 +51,7 @@
                 </li>
                 <li class="highlight"> <a id="toptab" class="active" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                 <li class="highlight"> <a id="toptab" href="tournaments.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
-                
+
                 <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
                 <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="user"></div></a></li>
                 <li class = "right" id = "login"> <a id="toptab" class="login" href="loginPage.html"><div id="login_result"></div></a></li>
@@ -75,23 +75,70 @@
         <script>
             window.onload = function() {
               var fen = fenGen(8, 0);
+              // var name = "Welcome Back Tournament"
+              // $.ajax({
+              //   url: "http://localhost:3000/get_teams_and_seed?tournament_name=" + name,
+              //   success: function(response){
+              //     console.log(response);
+              //     var array = response.result;
+              //     console.log(array);
+              //   }
+              // })
+
+              var jsonResponseFromServer =
+              {
+                "result": [
+                  {
+                    "seed": 1,
+                    "team_name": "TORCH IT UP"
+                  },
+                  {
+                    "seed": 2,
+                    "team_name": "Cool or Cold?"
+                  },
+                  {
+                    "seed": 3,
+                    "team_name": "Humus"
+                  },
+                  {
+                    "seed": 4,
+                    "team_name": "Human alien monster thing"
+                  },
+                  {
+                    "seed": 5,
+                    "team_name": "Artists Unite"
+                  },
+                  {
+                    "seed": 6,
+                    "team_name": "Hearthstone Legendaries"
+                  },
+                  {
+                    "seed": 7,
+                    "team_name": "Fancy Hair"
+                  },
+                  {
+                    "seed": 8,
+                    "team_name": "Super Tall"
+                  }
+                ]
+              }
               var tree = new Tree(fen, $("#container1")[0]);
-              
+
               $("div[class*=team-]").on("mouseover", function() {
                 $(this).parent().css('width','240px');
               });
-      
+
               $('div[class*=btn-]').on("mouseleave", function() {
                 $(this).css('width','210px');
               });
-      
+
               $(".draggable").draggable({
                 revert: true,
                 start: function(event, ui) {
                   origin = event.target.parentNode;
                 }
               });
-      
+
               $(".droppable").droppable({
                 accept: ".draggable",
                 drop: function(event, ui) {
@@ -99,16 +146,16 @@
                           var move = $(this).children().detach();
                           $(ui.draggable).parent().append(move);
                         }
-      
+
                         $(this).append($(ui.draggable));
-      
+
                         //update fen
                         var team = $(ui.draggable).attr("id");
                         var game = $(ui.draggable).parent().parent().attr("class");
                         console.log(game + " :: " + team);
                       }
               });
-      
+
             };
           </script>
     </body>
