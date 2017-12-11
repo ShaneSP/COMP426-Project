@@ -59,7 +59,7 @@ players = Player.create!([{
 Tournament.create!([{
   ## ID 1
   tournament_winner_id: 0,
-  tournament_name: "first tournament",
+  tournament_name: "Welcome Back Tournament",
   player_id: 1
   }, {
   ## ID 2
@@ -70,16 +70,46 @@ Tournament.create!([{
 
 Team.create!([{
   ## ID 1
-  team_name: "human torch",
+  team_name: "TORCH IT UP",
   tournament_id: 1,
   seed: 1
   }, {
   ## ID 2
-  team_name: "human iceburg",
+  team_name: "Cool or Cold?",
   tournament_id: 1,
   seed: 2
   }, {
   ## ID 3
+  team_name: "Humus",
+  tournament_id: 1,
+  seed: 3
+  }, {
+    ## ID 4
+  team_name: "Human alien monster thing",
+  tournament_id: 1,
+  seed: 4
+  }, {
+  ## ID 5
+  team_name: "Artists Unite",
+  tournament_id: 1,
+  seed: 5
+  }, {
+  ## ID 6
+  team_name: "Hearthstone Legendaries",
+  tournament_id: 1,
+  seed: 6
+  }, {
+  ## ID 7
+  team_name: "Fancy Hair",
+  tournament_id: 1,
+  seed: 7
+  }, {
+  ## ID 8
+  team_name: "Super Tall",
+  tournament_id: 1,
+  seed: 8
+  }, {
+  ## ID 9
   team_name: "Minecrafters",
   tournament_id: 2,
   seed: 1
