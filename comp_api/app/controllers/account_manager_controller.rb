@@ -32,9 +32,9 @@ class AccountManagerController < ApplicationController
        params.has_key?(:password) &&
        !Player.where(summoner_name: params[:username]).select(:password).first.nil? &&
        Player.where(summoner_name: params[:username]).select(:password).first.password == params[:password])
-      render json: "Login success"
-    else
-      render json: "Login failed"
+       render json: {status: true, name: params[:username]}
+     else
+       render json: {status: false}
     end
   end
   def check_valid_name
