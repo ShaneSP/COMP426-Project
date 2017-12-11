@@ -20,20 +20,21 @@ class TournamentController < ApplicationController
       if (Player.where(summoner_name: params[:summoner_name]).first.nil?)
         render json: {status: false}
       else
-        id = Player.where(summoner_name: params[:summoner_name]).first.id
-        @tournaments = Tournament.where(player_id: id)
-        result = []
-        @tournaments.each do |t|
+        # id = Player.where(summoner_name: params[:summoner_name]).first.id
+        # @tournaments = Tournament.where(player_id: id)
+        # result = []
+        # @tournaments.each do |t|
+        #
+        #   result.push({tournament_name: t.tournament_name, summoner_name: Player.where(id: t.player_id).first.summoner_name})
+        # end
 
-          result.push({tournament_name: t.tournament_name, summoner_name: Player.where(id: t.player_id).first.summoner_name})
-        end
-
-        # command = "
-        # SELECT T.tournament_name, P.summoner_name
-        # FROM players P, tournaments T
-        # WHERE P.id = T.player_id
-        # "
-        # result =  = ActiveRecord::Base.connection.execute(command)
+        name = params[:summoner_name]
+        command = "
+        SELECT T.tournament_name, P.summoner_name
+        FROM players P, tournaments T
+        WHERE P.id = T.player_id AND P.summoner_name = '#{name}'
+        "
+        result = ActiveRecord::Base.connection.execute(command)
 
         render json: {result: result}
       end
