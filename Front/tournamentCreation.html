@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="UTF-8">
-        <title>Creation</title>
-        <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">        
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="tournamentCreationStyle.css">    
-        <script src="jquery-3.2.1.min.js"></script>
-        <script src="script.js"></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>    
+    <meta charset="UTF-8">
+    <title>#pleasecomeupwithaname</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="tournamentCreationButton.js"></script>
+    <script src="tournamentCreation.js"></script>
+    <link rel="stylesheet" href="tournamentCreationStyle.css">
+    
 </head>
+
 <body>
-<div id = "container">
-        <nav id="navBar">
+    <div id = "container">
+        <nav id="navBar" class="navbar-default navbar-fixed-top">
             <ul>
                 <li id="navName">
-                    <a id = "navImage" href = "index.html">
-                        <img id = "neopetAvatar" src="Neopets_Avatar.PNG">
+                    <a id = "navImage" href = "falseindex.html">
+                        <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
                     </a>
                 </li>
-                <li class="highlight"> <a class="active" href="#top">Home</a></li>
-                <li class="highlight"> <a href="#events">Events</a></li>
-                <li class="highlight"> <a href="#about">About</a></li>
-                
-                <li class = "right" id = "signout"> <a class="signout" href="#">Sign Out</a> </li>
-                <li class = "right" id = "login"> <a class="login" href="#">Login</a> </li>
-                <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div> </li>
             </ul>
         </nav>
-    </body>
+    </div>
+    <div id = "wrapper"></div>
+</body>
 </html>
