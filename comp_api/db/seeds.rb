@@ -71,15 +71,18 @@ Tournament.create!([{
 Team.create!([{
   ## ID 1
   team_name: "human torch",
-  tournament_id: 1
+  tournament_id: 1,
+  seed: 1
   }, {
   ## ID 2
   team_name: "human iceburg",
-  tournament_id: 1
+  tournament_id: 1,
+  seed: 2
   }, {
   ## ID 3
   team_name: "Minecrafters",
-  tournament_id: 2
+  tournament_id: 2,
+  seed: 1
 }])
 
 PlayersAndTeam.create!([{
