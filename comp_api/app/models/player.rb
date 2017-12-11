@@ -4,6 +4,7 @@ class Player < ApplicationRecord
     ##Relationships
     has_many        :players_and_teams
     has_many        :tournaments
+    has_many        :teams,             :through => :players_and_teams,   :source => :teams
     has_many        :games,          :through => :teams
 
     def defaults

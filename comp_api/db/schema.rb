@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20171210225830) do
   create_table "games", force: :cascade do |t|
     t.integer "blueTeamID"
     t.integer "redTeamID"
-    t.integer "tournament_id" #Tournament that the game is a part of
+    t.integer "tournament_id"
     t.integer "gameWinner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171210225830) do
 
   create_table "teams", force: :cascade do |t|
     t.string "teamName"
-    t.integer "tournament_id" #Tournament Organizer's ID
+    t.integer "tournament_id"
     t.integer "gamesWon"
     t.integer "gamesPlayed"
     t.datetime "created_at", null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20171210225830) do
   create_table "tournaments", force: :cascade do |t|
     t.integer "tournamentWinnerID"
     t.string "tournamentName"
-    t.integer "player_id" #Tournament that the team is participating in
+    t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
