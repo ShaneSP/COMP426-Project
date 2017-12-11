@@ -10,7 +10,8 @@ body {
     "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    background-color: white;
+    background-image: url("http://i.imgur.com/voR8Lgi.jpg");
+    background-size: 150%;
     padding: 0;
     margin: 0;
 }
@@ -52,7 +53,8 @@ li {
 
 li a {
     display: block;
-    color: inherit;
+    color: black;
+    font-size: 20px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -83,45 +85,32 @@ li a.active:hover {
 
 
 #wrapper{
-<<<<<<< HEAD:Front/css/REALLOGINBOIZ.css
     width: 800px;
+    margin: 0px;
 }
 .wrapper_child{
-=======
-    margin-top: 60px; 
->>>>>>> 7ecdc8cdb269a2117c9e0f8767a2fbb572c18e33:Front/css/userCreationStyle.css
     text-align: center;
 }
-#submit_button {
-    position: absolute;
-    margin-top: 15px;
-    right: 44.5%;
-    width: 175px;
-    height: 175px;
-}
 
-<<<<<<< HEAD:Front/css/REALLOGINBOIZ.css
 #creation_hyperlink {
     position: absolute;
     margin-top: 40px;
     right: 45.25%;
 }
 
-div.leftBlock {
-    float: left;
-    width: 400px;
-}
-div.rightBlock {
-    float: right;
-    margin-right: 250px;
-}
-
 div.content{
     margin-top: 100px;
+    width: 900px;
 }
 
 div h1{
-    text-align: center;
+    margin-left: 275px;
 }
-=======
->>>>>>> 7ecdc8cdb269a2117c9e0f8767a2fbb572c18e33:Front/css/userCreationStyle.css
+
+div h4{
+    margin-left: 200px;
+}
+
+div#warwick{
+    float: right;
+}

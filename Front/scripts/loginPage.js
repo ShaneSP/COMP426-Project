@@ -8,7 +8,7 @@ var REALLOGINBOIZButton = function(wrapper) {
         "</div>" + "</div>");
     var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
         "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
-        "</div>" + "</div>");6
+        "</div>" + "</div>");
     $(wrapper).append(summoner_name_form, password_form);
 
     var login_button = document.getElementById("login_button");
@@ -56,6 +56,7 @@ var REALLOGINBOIZButton = function(wrapper) {
               localStorage.setItem("logout_state", "Log Out");
               return(req_summoner_name);
               return(req_password);
+              location.href = "index.html";
 
             } else if(e.status == false)    {
               alert("login attempt failed, invalid summoner name or password");

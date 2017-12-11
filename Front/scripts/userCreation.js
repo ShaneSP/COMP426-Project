@@ -3,18 +3,18 @@ $(document).ready(function () {
 });
 
 var loginButton = function(wrapper) {
-    var summoner_name_form = $("<div> \n" +
-    "<form id= \"summonerName\" class =\"wrapper_child\"> Summoner Name: <br> <input type=\"text\" name= \"Summoner Name\" class = \"req_sum_name\"><br></form>\n"+
-    "</div> ");
-    var first_name_form = $("<div> \n"  +
-    "<form id=\"firstName\" class =\"wrapper_child\"> First Name: <br> <input type=\"text\" name= \"First Name\" class = \"req_fir_name\"><br></form>\n" +
-    "</div>");
-    var last_name_form = $("<div>   \n" +
-    "<form id=\"lastName\" class =\"wrapper_child\"> Last Name: <br> <input type=\"text\" name= \"First Name\" class = \"req_las_name\"><br></form>\n" +
-    "</div>");
-    var password_form = $("<div>   \n"  +
-    "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"password\" name= \"Password\" class = \"req_password\"><br></form> \n" +
-    "</div>");
+    var summoner_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
+        "<input type=\"text\" class=\"form-control req_summoner_name\" placeholder=\" Summoner Name / Username\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "</div>" + "</div>");
+    var first_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
+        "<input type=\"text\" class=\"form-control req_fir_name\" placeholder=\" First Name\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "</div>" + "</div>");
+    var last_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
+        "<input type=\"text\" class=\"form-control req_las_name\" placeholder=\" Last Name\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "</div>" + "</div>");
+    var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
+        "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "</div>" + "</div>");
     $(wrapper).append(summoner_name_form, first_name_form, last_name_form, password_form);
 
     var submit_button = document.getElementById("submit_button");

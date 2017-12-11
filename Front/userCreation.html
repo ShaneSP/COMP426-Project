@@ -2,9 +2,21 @@
 <html lang="en">
 <head> 
     <title> User Creation </title>
+    <link rel="icon" type="image/gif" href="https://legacies.lol/img/L-icon.png">
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/userCreation.js"></script>
     <link rel="stylesheet" href="css/userCreationStyle.css">
+
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 </head>
 <body>
     <div id = "container">
@@ -15,13 +27,23 @@
                         <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
                     </a>
                 </li>
+                <li class="highlight"> <a id="toptab" class="active" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                <li class="highlight"> <a id="toptab" href="tournaments.html" target="_blank"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
             </ul>
         </nav>
     </div>
-    <div id ="wrapper">
-    </div> 
-    <button id="submit_button" type="button"> 
-            Submit
-                </button>
+    <div id="content" class="leftBlock" style="margin-top: 80px; margin-left: 50px; float: left;">
+        <h1>Sign Up Below</h1>
+        <h4>Fill in the forms below to get started! It's that easy!</h4>
+        <div id ="wrapper">
+        </div><br/>
+    
+        <button id="submit_button" type="button" class="btn btn-success waves-effect waves-light" style="margin-left: 320px;"> 
+                Sign Up
+        </button>
+    </div>
 
+    <div class="container" style="float: right; width: 450px; margin-top: 100px; margin-right: 200px;">
+        <img src="assets/warwick.png" style="height: 100%; width: 100%;">
+    </div>
 </body>

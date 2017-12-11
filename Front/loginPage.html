@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>REALLOGIN</title>
+    <title>Log In</title>
+    <link rel="icon" type="image/gif" href="https://legacies.lol/img/L-icon.png">
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/loginPage.js"></script>
     <link rel="stylesheet" href="css/loginPageStyle.css">
@@ -19,32 +20,34 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 </head>
     <body>
-            <div id = "container">
-                <nav id="navBar" class="navbar-default navbar-fixed-top">
-                    <ul>
-                        <li id="navName">
-                            <a id = "navImage" href = "index.html">
-                                <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        <div id = "container">
+            <nav id="navBar" class="navbar-default navbar-fixed-top">
+                <ul>
+                    <li id="navName">
+                        <a id = "navImage" href = "index.html">
+                            <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
+                        </a>
+                    </li>
+                    <li class="highlight"> <a id="toptab" class="active" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li class="highlight"> <a id="toptab" href="tournaments.html" target="_blank"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <div class="leftBlock" style="display: inline;">
+                <img src="assets/riven.png" style="height: 100%; width: 100%;">
             </div>
-            <div class="content">
-                <div class="leftBlock" style="display: inline;">
-                    <img src="assets/riven.png" style="height: 100%; width: 100%;">
+            <div id="container" style="margin-top: 50px; position: relative; text-align: center;" class="rightBlock">
+                <h1>Welcome Summoner!</h1>
+                <h4>Please Log In Below</h4>
+                <div id = "wrapper">
                 </div>
-                <div id="container" style="margin-top: 50px; position: relative; text-align: center;" class="rightBlock">
-                    <h1>Welcome Summoner!</h1>
-                    <h4>Please Log In Below</h4>
-                    <div id = "wrapper">
-                    </div>
-                    <button id="login_button" type="button" class="btn btn-primary waves-effect waves-light" style="margin-left: 50px;"> 
-                            Log In
-                    </button><br/>
-                    <a id = "creation_hyperlink" href="userCreation.html" style="padding-left: 100px; color: white;">Need to create a user?</a>
-                </div>
+                <button id="login_button" type="button" class="btn btn-primary waves-effect waves-light" style="margin-left: 50px;"> 
+                        Log In
+                </button><br/>
+                <a id = "creation_hyperlink" href="userCreation.html" style="padding-left: 100px; color: white; position: absolute; margin-right: 20px;">Need to create a user?</a>
             </div>
+        </div>
 
         <script>            
             console.log("this user is" + 'req_summoner_name');
