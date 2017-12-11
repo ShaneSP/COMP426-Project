@@ -192,7 +192,14 @@ div#image1{
 }
 
 span.glyphicon{
-    color: #95999f;
+    color: #0f0f0f0f;
+}
+
+#back-to-top.btn.btn-lg {
+    padding-top: 0.5rem;
+    padding-right: 2.4rem;
+    padding-bottom: 1rem;
+    padding-left: 2.4rem;
 }
 
 div#content h1, h3{
