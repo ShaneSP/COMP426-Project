@@ -41,7 +41,8 @@
                     <li class="highlight"> <a id="toptab" href="#eventscontent"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> Events</a></li>
                     
                     <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
-                    <li class = "right" id = "login"> <a id="toptab" class="login" href="#"><div id="login_result"></div></a></li>
+                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="user"></div></a></li>
+                    <li class = "right" id = "login"> <a id="toptab" class="login" href="REALLOGINBOIZ.html"><div id="login_result"></div></a></li>
                     <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div></li>
                 </ul>
             </nav>
@@ -253,11 +254,13 @@
                 localStorage.setItem("username", "");
                 localStorage.setItem("login_state", "Log In");
                 localStorage.setItem("logout_state", "");
+                localStorage.setItem("user_profile", "");
             }
 
             document.getElementById("result").innerHTML = localStorage.getItem("username");
             document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
             document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
+            document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
         </script>
     </body>
 </html>

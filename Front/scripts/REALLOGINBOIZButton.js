@@ -33,12 +33,20 @@ var REALLOGINBOIZButton = function(wrapper) {
             $(password_form).find('.req_password').val("");            
             return false;
         }
+
+        localStorage.setItem("username", req_summoner_name);
+        localStorage.setItem("user_profile", req_summoner_name);
+        localStorage.setItem("login_state", "");
+        localStorage.setItem("logout_state", "Log Out");
         
         console.log(req_summoner_name);
         console.log(req_password);
-      
 
+        return(req_summoner_name);
+        return(req_password);
+      
         $(summoner_name_form).find('.req_sum_name').val("");
         $(password_form).find('.req_password').val("");
+        
 }
 }
