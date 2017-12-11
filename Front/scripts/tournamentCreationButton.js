@@ -36,7 +36,7 @@ var tournamentCreationButton = function(wrapper) {
         
         console.log(req_tournament_name);
         console.log(req_organizer);
-      
+        
 
         $(tournament_name_form).find('.req_tou_name').val("");
         $(organizer_form).find('.req_org_name').val("");

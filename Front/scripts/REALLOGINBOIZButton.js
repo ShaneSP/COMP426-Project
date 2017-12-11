@@ -36,7 +36,7 @@ var REALLOGINBOIZButton = function(wrapper) {
         
         console.log(req_summoner_name);
         console.log(req_password);
-      
+        
 
         $(summoner_name_form).find('.req_sum_name').val("");
         $(password_form).find('.req_password').val("");
