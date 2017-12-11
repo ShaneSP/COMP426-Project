@@ -7,7 +7,7 @@ var REALLOGINBOIZButton = function(wrapper) {
         "<input type=\"text\" class=\"form-control req_sum_name\" placeholder=\" Username\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
         "</div>" + "</div>");
     var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
-        "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "<input type=\"password\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
         "</div>" + "</div>");
     $(wrapper).append(summoner_name_form, password_form);
 
