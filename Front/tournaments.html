@@ -80,12 +80,35 @@
             document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
             document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
 
+var jsonResponseFromServer = {
+  "result": [
+    {
+      "tournament_name": "first tournament",
+      "summoner_name": "Silver Bunny"
+    },
+    {
+      "tournament_name": "Defense of the of Legends",
+      "summoner_name": "Silver Bunny"
+    }
+  ]
+}
 
             $(document).ready(function(){
               $.ajax({
                 url: "http://localhost:3000/list_tournament?summoner_name=" + localStorage.getItem("username"),
                 success: function(response){
-                  console.log(response);
+                  console.log(response)
+                  if (response.status === false) {
+                    console.log("false");
+                  } else {
+                    var array = response.result;
+                    for(var item in array){
+                      console.log(array[item].tournament_name);
+                      console.log(array[item].summoner_name);
+                    }
+                  }
+
+
                 }
               })
             });
