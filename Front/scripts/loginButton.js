@@ -18,6 +18,23 @@ var loginButton = function(wrapper) {
     var submit_button = document.getElementById("submit_button");
     
 
+    first_name_form.on("submit", function(a)  {
+        a.preventDefault();
+        submit_button.onclick(a);
+    });
+    last_name_form.on("submit", function(b)  {
+        b.preventDefault();
+        submit_button.onclick(b);
+    });
+    password_form.on("submit", function(c)  {
+        c.preventDefault();
+        submit_button.onclick(c);
+    });
+    summoner_name_form.on("submit", function(d)  {
+        d.preventDefault();
+        submit_button.onclick(d);
+    });
+
     submit_button.onclick = function (e)   {
         e.preventDefault();
 

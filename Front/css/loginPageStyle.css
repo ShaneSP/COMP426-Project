@@ -4,7 +4,16 @@ html {
 
 }
 
-
+body {
+    color: #202020;
+    font-family: -apple-system, BlinkMacSystemFont, "Roboto",
+    "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
 
 #navBar{
     width: 100%;
@@ -73,9 +82,10 @@ li a.active:hover {
 }
 
 
-body    {
-    display: flex;
-    flex-direction: column;
+#wrapper{
+    margin-top: 60px; 
+    border-style: double;
+    width: 200px;
 }
 #submit_button {
     position: absolute;
@@ -87,8 +97,5 @@ body    {
 
 .wrapper_child {
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-style: double;
-    width: 200px;
+
 }
