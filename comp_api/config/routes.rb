@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'account_manager#login'
   get '/check_valid_name', to: 'account_manager#check_valid_name'
   get '/get_user_information', to: 'account_manager#get_user_information'
+
+  get '/create_tournament', to:'tournament#create_tournament'
+  get '/list_tournament', to: 'tournament#get_list'
 end
