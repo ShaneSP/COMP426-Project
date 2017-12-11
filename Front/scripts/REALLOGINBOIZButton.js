@@ -3,7 +3,7 @@ var REALLOGINBOIZButton = function(wrapper) {
     "<form id= \"summonerName\" class =\"wrapper_child\"> Summoner Name: <br> <input type=\"text\" name= \"Summoner Name\" class = \"req_sum_name\"><br></form>\n"+
     "</div> ");
     var password_form = $("<div>   \n"  +
-    "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"text\" name= \"Password\" class = \"req_password\"><br></form> \n" +
+    "<form id=\"password\" class =\"wrapper_child\"> Password: <br> <input type=\"password\" name= \"Password\" class = \"req_password\"><br></form> \n" +
     "</div>");
     $(wrapper).append(summoner_name_form, password_form);
 
