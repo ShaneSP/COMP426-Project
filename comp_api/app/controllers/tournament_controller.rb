@@ -57,4 +57,14 @@ class TournamentController < ApplicationController
       render json: {result: result}
     end
   end
+
+  def get_teams_and_seed
+    if (params.has_key?(:tournament_name) &&
+     Tournament.where(tournament_name: params[:tournament_name]).count != 0)
+     @tournament = Tournament.where(tournament_name: params[:tournament_name]).first
+     render json: @tournament
+   else
+   render json: {status: false}
+ end
+  end
 end
