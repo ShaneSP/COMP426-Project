@@ -12,17 +12,32 @@ class TournamentController < ApplicationController
      @tournament.save
      render json: @tournament
    else
-     render json: {failed: "error"}
+     render json: {status: false}
    end
   end
   def get_list
-    @tournaments = Tournament.all
+    if(params.has_key?(:summoner_name))
+      if (Player.where(summoner_name: params[:summoner_name]).first.nil?)
+        render json: {status: false}
+      else
+        id = Player.where(summoner_name: params[:summoner_name]).first.id
+        @tournaments = Tournament.where(player_id: id)
+        result = []
+        @tournaments.each do |t|
 
+          result.push({tournament_name: t.tournament_name, summoner_name: Player.where(id: t.player_id).first.summoner_name})
+        end
+        render json: {result: result}
+      end
+
+    else
+    @tournaments = Tournament.all
     result = []
     @tournaments.each do |t|
 
       result.push({tournament_name: t.tournament_name, summoner_name: Player.where(id: t.player_id).first.summoner_name})
     end
-    render json: result
+    render json: {result: result}
+  end
   end
 end
