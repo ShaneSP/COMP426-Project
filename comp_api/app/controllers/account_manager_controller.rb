@@ -75,4 +75,20 @@ class AccountManagerController < ApplicationController
       render json: "User not found"
     end
   end
+
+  def get_all_users
+    command = "
+    SELECT P.summoner_name
+    FROM players P
+    ORDER BY P.summoner_name
+    "
+    records_array = ActiveRecord::Base.connection.execute(command)
+
+    names = []
+    records_array.each do |v|
+      names.push(v['summoner_name'])
+    end
+
+    render json: {names: names}
+  end
 end

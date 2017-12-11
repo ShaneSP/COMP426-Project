@@ -22,6 +22,9 @@ var Bracket = {
             "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
             "    <div class=\"droppable btn-b\"></div>\n" +
             "</div>\n",
+    BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+            "    <div class=\"droppable btn-b\"><div class=\"draggable team-r\"></div></div>\n" +
+            "</div>\n",
     ROUNDEND : "</div>\n"
 };
 
@@ -42,6 +45,12 @@ var update = function () {
                 "</div>\n",
         BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"></div>\n" +
+                "</div>\n",
+        BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-b\"><div class=\"draggable team-r\"></div></div>\n" +
+                "</div>\n",
+        BYGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         ROUNDEND : "</div>\n"
@@ -69,6 +78,10 @@ var Tree = function(fen, container) {
                 case 'b': output += Bracket.BGAME;
                 break;
                 case 'e': output += Bracket.EGAME;
+                break;
+                case 'f': output += Bracket.BYEGAME;
+                break;
+                case 'x': output += Bracket.BYGAME;
                 break;
             }
             Current.GAME++;

@@ -2,7 +2,10 @@ class TeamController < ApplicationController
     def create_team
         if (params.has_key?(:team_name) &&
             params.has_key?(:tournament_id) &&
-            params.has_key?(:seed))
+            params.has_key?(:seed) &&
+            Team.where(team_name: params[:team_name], tournament_id: params[:tournament_id]).count == 0) &&
+            Team.where(seed: params[:seed], tournament_id: params[:tournament_id]).count == 0)
+            )
             @team = Team.new
             @team.team_name = params[:team_name]
             @team.tournament_id = params[:tournament_id]
@@ -27,7 +30,7 @@ class TeamController < ApplicationController
                 ORDER BY T.seed
                 "
                 result = ActiveRecord::Base.connection.execute(command)
-                
+
                 render json: {result: result}
             end
         else
@@ -37,7 +40,7 @@ class TeamController < ApplicationController
             ORDER BY T.tournament_id, T.seed
             "
             result = ActiveRecord::Base.connection.execute(command)
-            
+
             render json: {result: result}
         end
     end
@@ -45,16 +48,36 @@ class TeamController < ApplicationController
     def add_player
         if (params.has_key?(:tournament_id) &&
             params.has_key?(:seed) &&
-            params.has_key?(:player_id))
+            params.has_key?(:summoner_name))
             if (Team.where(tournament_id: params[:tournament_id], seed: params[:seed]).first.nil? ||
-                Player.where(id: params[:player_id]).first.nil?)
+                Player.where(summoner_name: params[:summoner_name]).first.nil?)
                 render json: {status: false}
             else
-                @registration = Players_and_team.new
-                @registration.team_id = Team.where(tournament_id: params[:tournament_id], seed: params[:seed]).select(:id).first
-                @registration.player_id = Player.where(id: params[:player_id].select(:id).first)
+              tournament_id = params[:tournament_id]
+              seed = params[:seed]
+              command = "
+              SELECT T.id
+              FROM teams T
+              WHERE T.tournament_id = #{tournament_id} AND t.seed = #{seed}
+              "
+              team_id = ActiveRecord::Base.connection.execute(command)[0]["id"]
+              name = params[:summoner_name]
+              command = "
+              SELECT P.id
+              FROM players P
+              WHERE P.summoner_name = '#{name}'
+              "
+              player_id = ActiveRecord::Base.connection.execute(command)[0]["id"]
+              
+              if(PlayersAndTeam.where(team_id: team_id, player_id: player_id).count == 0)
+                @registration = PlayersAndTeam.new
+                @registration.team_id = team_id
+                @registration.player_id = player_id
                 @registration.save
                 render json: @registration
+              else
+                render json: {status: false}
+              end
             end
         end
     end
