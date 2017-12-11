@@ -69,7 +69,7 @@ class AccountManagerController < ApplicationController
       # WHERE P.summoner_name = #{:username}
       # "
       # record = ActiveRecord::Base.connection.execute(command)
-      # render json: record.first
+      # render json: {result: record.first}
 
     else
       render json: "User not found"
