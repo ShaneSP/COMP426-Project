@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20171210225830) do
     t.integer "blue_team_id"
     t.integer "red_team_id"
     t.integer "tournament_id"
-    t.integer "game_winner"
+    t.integer "game_winner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

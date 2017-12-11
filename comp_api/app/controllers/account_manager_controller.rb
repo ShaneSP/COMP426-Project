@@ -8,6 +8,21 @@ class AccountManagerController < ApplicationController
     # records_array = ActiveRecord::Base.connection.execute(command)
     # render json: records_array
 
+    command = "
+    UPDATE P
+    SET P.games_played = P.games_played + 1
+    FROM players P, players_and_teams PAT, teams T
+    WHERE P.id = PAT.player_id AND PAT.team_id = T.id AND (T.id = 1 OR T.id = 2)
+    
+    UPDATE P
+    SET P.games_won = P.games_won + 1
+    FROM players P, players_and_teams PAT, teams T
+    WHERE P.id = PAT.player_id AND PAT.team_id = T.id AND T.id = 1
+    "
+
+    records_array = ActiveRecord::Base.connection.execute(command)
+    render json: records_array
+
     if (params.has_key?(:username) &&
        params.has_key?(:password) &&
        params.has_key?(:firstname) &&
