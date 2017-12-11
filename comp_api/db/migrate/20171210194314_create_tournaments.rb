@@ -4,6 +4,7 @@ class CreateTournaments < ActiveRecord::Migration[5.1]
       t.integer :tournament_winner_id
       t.string :tournament_name
       t.integer :player_id #Tournament that the team is participating in
+      t.string :fen
 
       t.timestamps
     end

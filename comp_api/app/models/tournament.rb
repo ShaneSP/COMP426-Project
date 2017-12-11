@@ -10,6 +10,7 @@ class Tournament < ApplicationRecord
     def defaults
         unless persisted?
             self.tournament_winner_id||=0
+            self.fen||=""
         end
     end
 end

@@ -7,7 +7,6 @@ class Game < ApplicationRecord
     def defaults
         unless persisted?
             self.game_winner_id||=0
-            self.final_round||=false
         end
     end
 end

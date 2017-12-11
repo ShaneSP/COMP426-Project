@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20171210225830) do
     t.integer "red_team_id"
     t.integer "tournament_id"
     t.integer "game_winner_id"
-    t.integer "round"
-    t.boolean "final_round"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171210225830) do
     t.integer "tournament_winner_id"
     t.string "tournament_name"
     t.integer "player_id"
+    t.string "fen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
