@@ -4,16 +4,16 @@ $(document).ready(function () {
 
 var loginButton = function(wrapper) {
     var summoner_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
-        "<input type=\"text\" class=\"form-control req_sum_name\" placeholder=\" Summoner Name / Username\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "<input type=\"text\" class=\"form-control req_sum_name\" placeholder=\" Summoner Name / Username\" aria-describedby=\"basic-addon1\" style=\"text-align: center; padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;\">" +
         "</div>" + "</div>");
     var first_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
-        "<input type=\"text\" class=\"form-control req_fir_name\" placeholder=\" First Name\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "<input type=\"text\" class=\"form-control req_fir_name\" placeholder=\" First Name\" aria-describedby=\"basic-addon1\" style=\"text-align: center; padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;\">" +
         "</div>" + "</div>");
     var last_name_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
-        "<input type=\"text\" class=\"form-control req_las_name\" placeholder=\" Last Name\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "<input type=\"text\" class=\"form-control req_las_name\" placeholder=\" Last Name\" aria-describedby=\"basic-addon1\" style=\"text-align: center; padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;\">" +
         "</div>" + "</div>");
     var password_form = $("<div class=\"container\">" + "<div class=\"input-group input-group-lg\" style=\"width:700px; background-color: white;\">" +
-        "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center;\">" +
+        "<input type=\"text\" class=\"form-control req_password\" placeholder=\" Password\" aria-describedby=\"basic-addon1\" style=\"text-align: center; padding-left: 0px; padding-right: 0px; padding-top: 10px; padding-bottom: 10px;\">" +
         "</div>" + "</div>");
     $(wrapper).append(summoner_name_form, first_name_form, last_name_form, password_form);
 
