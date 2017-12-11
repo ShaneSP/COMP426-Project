@@ -6,15 +6,16 @@
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="jquery-ui.js"></script>
     <script type="text/javascript" src="tree.js"></script>
+    <script type="text/javascript" src="fen.js"></script>
     <link rel="stylesheet" type="text/css" href="brackets.css"></link>
   </head>
   <body>
     <div id="container"></div>
-
     <script>
       window.onload = function() {
-        var tree = new Tree("bbrbrbnn/rbnn/ee/e", $("#container")[0]);
-
+        var fen = fenGen(9, 0)
+        var tree = new Tree(fen, $("#container")[0]);
+        
         $("div[class*=team-]").on("mouseover", function() {
           $(this).parent().css('width','240px');
         });
@@ -39,6 +40,8 @@
                   }
 
                   $(this).append($(ui.draggable));
+
+                  //update fen
                 }
         });
 
