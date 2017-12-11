@@ -2,7 +2,10 @@ class TeamController < ApplicationController
     def create_team
         if (params.has_key?(:team_name) &&
             params.has_key?(:tournament_id) &&
-            params.has_key?(:seed))
+            params.has_key?(:seed) &&
+            Team.where(team_name: params[:team_name], tournament_id: params[:tournament_id]).count == 0) &&
+            Team.where(seed: params[:seed], tournament_id: params[:tournament_id]).count == 0)
+            )
             @team = Team.new
             @team.team_name = params[:team_name]
             @team.tournament_id = params[:tournament_id]
