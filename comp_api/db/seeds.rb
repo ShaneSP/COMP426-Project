@@ -113,6 +113,16 @@ Team.create!([{
   team_name: "Minecrafters",
   tournament_id: 2,
   seed: 1
+  }, {
+  ## ID 10
+  team_name: "Minecrafters",
+  tournament_id: 1,
+  seed: 9
+  }, {
+  ## ID 11
+  team_name: "Last Place",
+  tournament_id: 1,
+  seed: 10
 }])
 
 PlayersAndTeam.create!([{
