@@ -48,8 +48,9 @@
                 </ul>
             </nav>
 
-            <div id = "content" style="margin-top: 80px;">
+            <div id = "content">
                 <h1>Welcome <div id="result" style="display: inline;"></h1>
+                    <p id="test"></p>
                 
             </div>
 
@@ -74,6 +75,25 @@
                 localStorage.setItem("login_state", "Log In");
                 localStorage.setItem("logout_state", "");
                 localStorage.setItem("user_profile", "");
+            }
+
+            document.addEventListener('DOMContentLoaded', function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("test").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open( "GET", "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Cielka?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c", true);
+                xhttp.setRequestHeader("Accept", "application/json; charset=utf-8");
+                xhttp.send();
+            },false);
+
+            function parseData(xhttp){
+                if(xhttp.readyState==4 && xhttp.status==200){
+                var data = JSON.parse(xhttp.responseText);
+                console.log(data);
+                }
             }
 
             document.getElementById("result").innerHTML = localStorage.getItem("username");
