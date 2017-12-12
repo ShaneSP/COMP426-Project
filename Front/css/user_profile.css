@@ -4,7 +4,10 @@ body {
     "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    background-color: white;
+    background-image: url("https://vignette3.wikia.nocookie.net/leagueoflegends/images/2/22/Lunar-revel-login-screen.png/revision/latest?cb=20140705193936");
+    background-size: 100%;
+    align-content: right;
+    background-repeat: no-repeat;
     padding: 0;
     margin: 0;
 }
@@ -254,3 +257,136 @@ div#footerinfo{
     background-color: #7F7F7F;
     padding-bottom: 75px;
 }
+
+.box {
+    width: 500px;
+    height: 600px;
+    border-radius: 5px;
+    background: #fbfcee;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  
+  .wave {
+    opacity: .4;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    background: #0af;
+    width: 500px;
+    height: 500px;
+    margin-left: -250px;
+    margin-top: -250px;
+    -webkit-transform-origin: 50% 48%;
+            transform-origin: 50% 48%;
+    border-radius: 43%;
+    -webkit-animation: drift 5000ms infinite linear;
+            animation: drift 5000ms infinite linear;
+  }
+  
+  .wave.-three {
+    -webkit-animation: drift 8000ms infinite linear;
+            animation: drift 8000ms infinite linear;
+  }
+  
+  .wave.-two {
+    -webkit-animation: drift 10000ms infinite linear;
+            animation: drift 10000ms infinite linear;
+    opacity: .1;
+    background: yellow;
+  }
+  
+  .box:after {
+    content: '';
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ee88aa), color-stop(80%, rgba(221, 238, 255, 0)), to(rgba(255, 255, 255, 0.5)));
+    background: linear-gradient(to bottom, #ee88aa, rgba(221, 238, 255, 0) 40%, rgba(252, 141, 45, 0.5));
+    z-index: 11;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  
+  .player_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    line-height: 300px;
+    text-align: center;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: .4em;
+    font-size: 24px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    text-indent: .3em;
+  }
+
+  [class*="player_text"] {
+    position: absolute;
+    left: -10%;
+    width: 100%;
+    z-index: 1;
+    line-height: 300px;
+    margin-top: 60px;
+    margin-left: 50px;
+    text-align: center;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    color: #777777;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: .4em;
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    text-indent: .3em;
+  }
+
+  .player_text-1 {
+    top: 15%;
+  }
+
+  .player_text-2 {
+    top: 25%;
+  }
+
+  .player_text-3 {
+    top: 35%;
+  }
+
+
+  
+  @-webkit-keyframes drift {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    from {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes drift {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    from {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }

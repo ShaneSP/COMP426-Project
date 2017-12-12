@@ -42,21 +42,26 @@
                     <li class="highlight"> <a id="toptab" href="help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
                     
                     <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
-                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="user"></div></a></li>
+                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="user_profile.html"><div id="user"></div></a></li>
                     <li class = "right" id = "login"> <a id="toptab" class="login" href="loginPage.html"><div id="login_result"></div></a></li>
                     <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div></li>
                 </ul>
             </nav>
 
             <div id = "content">
-                <div id=container>
+                <div class='box'>
+                    <div class='wave -one'></div>
+                    <div class='wave -two'></div>
+                    <div class='wave -three'></div>
+                    <div id="user_welcome"></div>
+                    <div id="user_level"></div>
+                    <div id="user_region"></div>
+                    <div id="user_board"></div>
+                </div>
+
                     <h1><div id="result" style="display: inline;"><div id="user_welcome" style="display: inline;"></div></h1>
 
-                    <div id="user_region"></div>
-                    <div id="user_level"></div>
                 </div>
-                <h3>Most Recent Game Stats:</h3>
-                <div id="user_game1"></div>
                 
             </div>
 
@@ -64,11 +69,11 @@
                 <div class = "div-darkGray" id = "contact">
                     <div id="footercontact">
                         <br/>
-                        Logged in as: <div id="result" style="display: inline;"></div><br/>
-                        <span class="glyphicon glyphicon-envelope"></span>Contact Us
+                        Logged in as: <div id="result" style="display: inline;"></div>
                     </div>
-                    <div id="footerinfo">
+                    <div id="footerinfo" style="text-align: right;">
                         <br/>
+                        All images belong to Riot Games<br/>
                         KMProductions&trade; 2017
                     </div>
                 </div>
@@ -91,24 +96,25 @@
                 document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
 
                 $.ajax({
-                    url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + "Cielka" + "?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
+                    url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + localStorage.getItem("username") + "?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
                     success: function(response){
-                            document.getElementById("user_welcome").innerHTML = "Welcome " + response.name;
-                            document.getElementById("user_level").innerHTML = "<h4><b>Summoner Level:</b> " + response.summonerLevel+ "</h4>";
+                            document.getElementById("user_welcome").innerHTML = "<div class=\"player_title\">Welcome, " + response.name;
+                            document.getElementById("user_level").innerHTML = "<div class=\"player_text-1\">Summoner Level: " + response.summonerLevel + "</div>";
                             var user_accountid = response.accountId;
 
                             $.ajax({
                                 url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + user_accountid + "/recent?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
                                 success: function(match_response){
-                                    document.getElementById("user_region").innerHTML = "<h4><b>Region:</b> " + match_response.matches[0].platformId + "</h4>";
-                                    var champ_id = match_response.matches[0].champion;
-                                    document.getElementById("user_game1").innerHTML = "<div class=\"panel panel-default\">" + "<div class=\"panel-body\">" + " Role: " + match_response.matches[0].role + " Lane Played: " + match_response.matches[0].lane + " Season: " + match_response.matches[0].season  + "</div>" + "</div>";
+                                    document.getElementById("user_region").innerHTML = "<div class=\"player_text-2\">Summoner Region: " + match_response.matches[0].platformId +"</div>";
+                                    
                                 }
                             })
+
+                            document.getElementById("user_board").innerHTML = "<div class=\"player_text-3\"><a href=\"https://boards.na.leagueoflegends.com/en/player/NA/" + localStorage.getItem("username") +"\">Your League Board Profile" + "</a>" + "</div>";
                     },
                     error: function(response){
                         console.log(response);
-                        document.getElementById("user_welcome").innerHTML = "You do not have a valid summoner name.";
+                        document.getElementById("user_welcome").innerHTML = "<div class=\"player_text-2\">No Existing Summoner Profile</div>";
                     }
                 })
             }
