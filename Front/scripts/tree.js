@@ -6,13 +6,13 @@ var Current = {
     BSEED : 0,
     RTEAM : "",
     BTEAM : "",
-    RLIST : []
+    INDEX : 0
 }
 
 var Bracket = {
         ROUNDSTART : "<div class=\"round-"+Current.ROUND+"\">\n",
         EGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"></div>\n" +
+                "    <div idclass=\"droppable btn-t\"></div>\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
@@ -40,26 +40,26 @@ var update = function () {
     Bracket = {
         ROUNDSTART : "<div class=\"round-"+Current.ROUND+"\">\n",
         EGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"></div>\n" +
-                "    <div class=\"droppable btn-b\"></div>\n" +
+                "    <div id=\""+Current.INDEX+"\" class=\"droppable btn-t\"></div>\n" +
+                "    <div id=\""+(Current.INDEX+1)+"\" class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.BSEED+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
+                "    <div id=\""+Current.INDEX+"\" class=\"droppable btn-t\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div id=\""+(Current.INDEX+1)+"\" class=\"droppable btn-b\"><div id=\""+Current.BSEED+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
                 "</div>\n",
         RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"></div>\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.BSEED+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
+                "    <div id=\""+Current.INDEX+"\" class=\"droppable btn-t\"></div>\n" +
+                "    <div id=\""+(Current.INDEX+1)+"\" class=\"droppable btn-b\"><div id=\""+Current.BSEED+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
                 "</div>\n",
         BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
-                "    <div class=\"droppable btn-b\"></div>\n" +
+                "    <div id=\""+Current.INDEX+"\" class=\"droppable btn-t\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div id=\""+(Current.INDEX+1)+"\" class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.RSEED+"\" class=\"draggable team-bye\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div id=\""+Current.INDEX+"\" class=\"droppable btn-b\"><div id=\""+Current.RSEED+"\" class=\"draggable team-bye\">"+Current.RTEAM+"</div></div>\n" +
                 "</div>\n",
         BYGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-b\"></div>\n" +
+                "    <div id=\""+Current.INDEX+"\" class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         ROUNDEND : "</div>\n"
     };
@@ -67,75 +67,91 @@ var update = function () {
 
 var Tree = function(fen, container, jsonResponse) {
     var array = jsonResponse.result;
-    Current.RLIST = fen.split("/");
-    var rounds = Current.RLIST.length;
-    var teams = fen.length - Current.RLIST.length + 2;
-    var games = fen.length - Current.RLIST.length + 1;
-
+    var rounds = Math.ceil(Math.log2(array.length));
+    var teams = array.length;
+    var games = array.length - 1;
     var output = "";
-
+    counter = 0;
     for(var i = 0; i < rounds; i++) {
-        output+=Bracket.ROUNDSTART;
-        for(var j = 0; j < Current.RLIST[Current.ROUND].length; j++) {
-                if(Current.ROUND === 0 && array[Current.TEAM] !== undefined) {
-                        Current.RSEED = array[Current.TEAM].seed;
-                        Current.RTEAM = array[Current.TEAM].team_name;
-                        update();
-                        if(Current.ROUND === 0 && array[Current.TEAM+1] !== undefined) {
-                          Current.BSEED = array[Current.TEAM+1].seed;
-                          Current.BTEAM = array[Current.TEAM+1].team_name;
-                          update();
-                        } else {
-                                Current.BTEAM = "null";
-                                Current.BSEED = -1;
-                                update();
-                        }
-                } else if(Current.ROUND !== 0 && Current.RLIST[Current.ROUND][j] !== "e") {
-                        if (Current.RLIST[Current.ROUND][j] !== "r") {
-                                Current.RSEED = array[Current.TEAM - (j / 2)].seed;
-                                Current.RTEAM = array[Current.TEAM - (j / 2)].team_name;
-                                update();
-                        } else if (Current.RLIST[Current.ROUND][j] !== "b") {
-                                Current.BSEED = array[Current.TEAM - (j / 2)].seed;
-                                Current.BTEAM = array[Current.TEAM - (j / 2)].team_name;
-                                update();
-                        } else if (Current.RLIST[Current.ROUND][j] !== "n") {
-                                Current.RSEED = array[Current.TEAM - 1 - (j / 2)].seed;
-                                Current.RTEAM = array[Current.TEAM - 1 -(j / 2)].team_name;
-                                Current.BSEED = array[Current.TEAM - (j / 2)].seed;
-                                Current.BTEAM = array[Current.TEAM - (j / 2)].team_name;
-                                update();
-                        }
-                
-                } else {
-                        Current.RTEAM = "null";
-                        Current.RSEED = -1;
-                        update();
-                }
-
-                switch (Current.RLIST[Current.ROUND][j]) {
-                        case 'n': output += Bracket.PGAME;
-                        break;
-                        case 'r': output += Bracket.RGAME;
-                        break;
-                        case 'b': output += Bracket.BGAME;
-                        break;
-                        case 'e': output += Bracket.EGAME;
-                        break;
-                        case 'f': output += Bracket.BYEGAME;
-                        break;
-                        case 'x': output += Bracket.BYGAME;
-                        break;
-                }
-                Current.TEAM+=2;
-                Current.GAME++;
-                update();
+      update();
+      output+=Bracket.ROUNDSTART;
+      teams = Math.ceil(teams / 2);
+      for(var j = 0; j < teams; j++) {
+          for(var k = 0; k < 2; k++){
+          if(fen[counter] > 0) {
+            if(counter % 2 === 0) {
+              Current.RTEAM = array[fen[counter]-1].team_name;
+              Current.RSEED = fen[counter];
+              Current.TEAM++;
+              update();
+              Current.INDEX++;
+            } else {
+              Current.BTEAM = array[fen[counter]-1].team_name;
+              Current.BSEED = fen[counter];
+              Current.TEAM++;
+              update();
+              Current.INDEX++;
+            }
+          } else {
+            if(counter % 2 === 0) {
+              Current.RTEAM = "";
+              Current.RSEED = 0;
+              update();
+              Current.INDEX++;
+            } else {
+              Current.BTEAM = "";
+              Current.BSEED = 0;
+              update();
+              Current.INDEX++;
+            }
+          }
+          counter++;
         }
-        output += Bracket.ROUNDEND;
-        Current.ROUND++;
+
+        if(Current.RTEAM !== "" && Current.BTEAM !== "") {
+          output+=Bracket.PGAME;
+        } else if(Current.RTEAM !== "") {
+          output+=Bracket.BGAME;
+        } else if(Current.BTEAM !== "") {
+          output+=Bracket.RGAME;
+        } else {
+          output+=Bracket.EGAME;
+        }
+        Current.GAME++;
         update();
+      }
+      Current.ROUND++;
+      output+=Bracket.ROUNDEND;
     }
+
+    // for(var i = 0; i < rounds; i++) {
+    //     output+=Bracket.ROUNDSTART;
+    //     for(var j = 0; j < Current.RLIST[Current.ROUND].length; j++) {
+    //
+    //             switch (Current.RLIST[Current.ROUND][j]) {
+    //                     case 'n': output += Bracket.PGAME;
+    //                     break;
+    //                     case 'r': output += Bracket.RGAME;
+    //                     break;
+    //                     case 'b': output += Bracket.BGAME;
+    //                     break;
+    //                     case 'e': output += Bracket.EGAME;
+    //                     break;
+    //                     case 'f': output += Bracket.BYEGAME;
+    //                     break;
+    //                     case 'x': output += Bracket.BYGAME;
+    //                     break;
+    //             }
+    //             Current.TEAM+=2;
+    //             Current.GAME++;
+    //             update();
+    //     }
+    //     output += Bracket.ROUNDEND;
+    //     Current.ROUND++;
+    //     update();
+    // }
 
     $(container).empty();
     $(container).append(output);
+    // console.log(output);
 }
