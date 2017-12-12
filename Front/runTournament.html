@@ -82,7 +82,7 @@
                 url: "http://localhost:3000/get_teams_and_seed?tournament_name=" + name,
                 success: function(response){
                     console.log(response.result.length);
-                    fen = fenGen(response.result.length,0)
+                    fen = fenGen(response.result.length,0);
                     tree = new Tree(fen, $("#container1")[0], response);
                     $("div[class*=team-]").on("mouseover", function() {
                       $(this).parent().css('width','240px');
@@ -118,13 +118,13 @@
 
                               var newGame = $(ui.draggable).parent().parent().attr("class");
                               //index of fen w/o '/'s
-                              newGame = parseInt(newGame.substring(5));
-                              oldGame = parseInt(oldGame.substring(5));
+                              newGame = newGame.substring(5);
+                              oldGame = oldGame.substring(5);
                               console.log(oldGame + " :: " + newGame);
                               var count = 0;
                               for(var i = 0; i < temp.length; i++) {
                                 if(temp[i] !== "/") {
-                                    if(count === newGame) {
+                                    if(count === newGame*1) {
                                         //change the char at fen locale
                                         temp = temp.substring(0, i) + "b" + temp.substring(i + 1);
                                         console.log(i)   
