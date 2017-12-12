@@ -14,9 +14,9 @@ body {
     position: absolute;
     padding: 10px;
     width: 70%;
-    left: 10%;
+    left: 15%;
     top: 15%;
-    background-color: rgba(255, 255, 255, 0.384);
+    background-color: #fff;
 }
 
 [class*="round-"] {

@@ -244,4 +244,5 @@ div#image3 {
     background-position: top;
     background-size: 100%;
     image-rendering: -webkit-optimize-contrast;
+    height: 650px;
 }
