@@ -61,8 +61,18 @@ class TournamentController < ApplicationController
   def get_teams_and_seed
     if (params.has_key?(:tournament_name) &&
      Tournament.where(tournament_name: params[:tournament_name]).count != 0)
-     @tournament = Tournament.where(tournament_name: params[:tournament_name]).first
-     render json: @tournament
+     tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
+
+     command = "
+     SELECT Te.seed, Te.team_name
+     FROM teams Te, tournaments T
+     WHERE Te.tournament_id = T.id AND T.id = #{tournament_id}
+     ORDER BY Te.seed, Te.team_name
+     "
+     result = ActiveRecord::Base.connection.execute(command)
+
+     # [{},{},{},{},{}]
+     render json: {result: result}
    else
    render json: {status: false}
  end
