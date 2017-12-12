@@ -118,15 +118,16 @@
 
                               var newGame = $(ui.draggable).parent().parent().attr("class");
                               //index of fen w/o '/'s
-                              newGame = newGame.substring(5);
-                              oldGame = oldGame.substring(5);
+                              newGame = parseInt(newGame.substring(5));
+                              oldGame = parseInt(oldGame.substring(5));
                               console.log(oldGame + " :: " + newGame);
                               var count = 0;
                               for(var i = 0; i < temp.length; i++) {
                                 if(temp[i] !== "/") {
                                     if(count === newGame) {
                                         //change the char at fen locale
-                                        temp = temp.substring(0, i) + "b" + temp.substring(i + 1);   
+                                        temp = temp.substring(0, i) + "b" + temp.substring(i + 1);
+                                        console.log(i)   
                                     }
                                     count++;
                                 }
