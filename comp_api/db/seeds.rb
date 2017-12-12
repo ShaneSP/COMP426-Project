@@ -54,6 +54,108 @@ players = Player.create!([{
   first_name: "Max",
   last_name: "FriendFriend",
   password: "databases_god"
+  }, {
+  ## ID 9
+  summoner_name: "TwoMoreSeconds",
+  first_name: "Pusheen",
+  last_name: "Birthday",
+  password: "pad4lyfe"
+  }, {
+  ## ID 10
+  summoner_name: "toss'EmUp",
+  first_name: "Wendy",
+  last_name: "TiltForever",
+  password: "WaterBottlesCoefficient"
+  }, {
+  ## ID 11
+  summoner_name: "Manlier_You",
+  first_name: "Leona",
+  last_name: "SunShield",
+  password: "3ngag3th33n3my"
+  }, {
+  ## ID 12
+  summoner_name: "No More Heals",
+  first_name: "Soraka",
+  last_name: "Bananananananana",
+  password: "stop_asking_me"
+  }, {
+  ## ID 13
+  summoner_name: "FPS Banana",
+  first_name: "Mercy",
+  last_name: "Overwatch",
+  password: "MLGfivemanres"
+  }, {
+  ## ID 14
+  summoner_name: "LVL_9001",
+  first_name: "Naruto",
+  last_name: "References",
+  password: "aaaaaaaaaaaAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHH"
+  }, {
+  ## ID 15
+  summoner_name: "SPRINGisBETTER",
+  first_name: "Spring",
+  last_name: "Sprung",
+  password: "physics_traumatized"
+  }, {
+  ## ID 16
+  summoner_name: "D.VA STREAMS",
+  first_name: "D.VA",
+  last_name: "Anne's Laptop",
+  password: "cedric_don't_look"
+  }, {
+  ## ID 17
+  summoner_name: "natural_water",
+  first_name: "Fake",
+  last_name: "Deer Park",
+  password: "iPr0m1s3imBETTER"
+  }, {
+  ## ID 18
+  summoner_name: "FAST_FOOD",
+  first_name: "McDonald",
+  last_name: "Heart Attack",
+  password: "ITwasntME"
+  }, {
+  ## ID 19
+  summoner_name: "Inspiration",
+  first_name: "Laptop",
+  last_name: "Chargers",
+  password: "thisISgettingOLD"
+  }, {
+  ## ID 20
+  summoner_name: "boostedAF",
+  first_name: "Adding",
+  last_name: "Lines",
+  password: "github_stats_matter"
+  }, {
+  ## ID 21
+  summoner_name: "MetaJokes",
+  first_name: "FirstName",
+  last_name: "LastName",
+  password: "Password"
+  }, {
+  ## ID 22
+  summoner_name: "Five.Five",
+  first_name: "Hearts",
+  last_name: "Tespa BOTTLE",
+  password: "riggedDrawings"
+  }, {
+  ## ID 23
+  summoner_name: "HalfwayThere",
+  first_name: "EXP",
+  last_name: "Bar",
+  password: "eugenes300dollarchair"
+  }, {
+  ## ID 24
+  summoner_name: "Order Shakes",
+  first_name: "Crew",
+  last_name: "Swag",
+  password: "comp426@unc"
+  }, {
+  ## ID 25
+  summoner_name: "Definition",
+  first_name: "AMX",
+  last_name: "Board",
+  password: "i_am_broken"
 }])
 
 Tournament.create!([{
