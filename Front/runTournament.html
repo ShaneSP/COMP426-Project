@@ -75,7 +75,7 @@
         <script>
             window.onload = function() {
               var fen;
-              var name = "Welcome Back Tournament"
+              var name = "Welcome Back Tournament";
               var tree;
               $.ajax({
                 url: "http://localhost:3000/get_teams_and_seed?tournament_name=" + name,
@@ -83,42 +83,43 @@
                     console.log(response.result.length);
                     fen = fenGen(response.result.length,0)
                     tree = new Tree(fen, $("#container1")[0], response);
+                    $("div[class*=team-]").on("mouseover", function() {
+                      $(this).parent().css('width','240px');
+                    });
+
+                    $('div[class*=btn-]').on("mouseleave", function() {
+                      $(this).css('width','210px');
+                    });
+
+                    $(".draggable").draggable({
+                      revert: true,
+                      start: function(event, ui) {
+                        origin = event.target.parentNode;
+                      }
+                    });
+
+                    $(".droppable").droppable({
+                      accept: ".draggable",
+                      drop: function(event, ui) {
+                              if ($(this).children().length > 0) {
+                                var move = $(this).children().detach();
+                                $(ui.draggable).parent().append(move);
+                              }
+
+                              $(this).append($(ui.draggable).css({top: 0, left: 0}));
+
+                              //update fen
+                              var team = $(ui.draggable).attr("id");
+                              var game = $(ui.draggable).parent().parent().attr("class");
+                              console.log(game + " :: " + team);
+                            }
+                    });
                 }
               })
 
 
 
-              $("div[class*=team-]").on("mouseover", function() {
-                $(this).parent().css('width','240px');
-              });
 
-              $('div[class*=btn-]').on("mouseleave", function() {
-                $(this).css('width','210px');
-              });
-
-              $(".draggable").draggable({
-                revert: true,
-                start: function(event, ui) {
-                  origin = event.target.parentNode;
-                }
-              });
-
-              $(".droppable").droppable({
-                accept: ".draggable",
-                drop: function(event, ui) {
-                        if ($(this).children().length > 0) {
-                          var move = $(this).children().detach();
-                          $(ui.draggable).parent().append(move);
-                        }
-
-                        $(this).append($(ui.draggable).css({top: 0, left: 0}));
-
-                        //update fen
-                        var team = $(ui.draggable).attr("id");
-                        var game = $(ui.draggable).parent().parent().attr("class");
-                        console.log(game + " :: " + team);
-                      }
-              });
 
             };
           </script>
