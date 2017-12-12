@@ -1,31 +1,36 @@
 var Current = {
     ROUND : 0,
     GAME : 0,
+    RTEAM : "",
+    BTEAM : "",
     RLIST : []
 }
 
 var Bracket = {
-    ROUNDSTART : "<div class=\"round-"+Current.ROUND+"\">",
-    EGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-            "    <div class=\"droppable btn-t\"></div>\n" +
-            "    <div class=\"droppable btn-b\"></div>\n" +
-            "</div>\n",
-    PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-            "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
-            "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
-            "</div>\n",
-    RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-            "    <div class=\"droppable btn-t\"></div>\n" +
-            "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
-            "</div>\n",
-    BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-            "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
-            "    <div class=\"droppable btn-b\"></div>\n" +
-            "</div>\n",
-    BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-            "    <div class=\"droppable btn-b\"><div class=\"draggable team-r\"></div></div>\n" +
-            "</div>\n",
-    ROUNDEND : "</div>\n"
+        ROUNDSTART : "<div class=\"round-"+Current.ROUND+"\">\n",
+        EGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"></div>\n" +
+                "    <div class=\"droppable btn-b\"></div>\n" +
+                "</div>\n",
+        PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.BTEAM+"\" class=\"draggable team-b\"></div></div>\n" +
+                "</div>\n",
+        RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.BTEAM+"\" class=\"draggable team-b\"></div></div>\n" +
+                "</div>\n",
+        BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-t\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"></div>\n" +
+                "</div>\n",
+        BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\"></div></div>\n" +
+                "</div>\n",
+        BYGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
+                "    <div class=\"droppable btn-b\"></div>\n" +
+                "</div>\n",
+        ROUNDEND : "</div>\n"
 };
 
 var update = function () {
@@ -36,19 +41,19 @@ var update = function () {
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
-                "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
+                "    <div class=\"droppable btn-t\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.BTEAM+"\" class=\"draggable team-b\"></div></div>\n" +
                 "</div>\n",
         RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-t\"></div>\n" +
-                "    <div class=\"droppable btn-b\"><div class=\"draggable team-b\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.BTEAM+"\" class=\"draggable team-b\"></div></div>\n" +
                 "</div>\n",
         BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"><div class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-t\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\"></div></div>\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-b\"><div class=\"draggable team-r\"></div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\"></div></div>\n" +
                 "</div>\n",
         BYGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +
@@ -57,18 +62,20 @@ var update = function () {
     };
 }
 
-var Tree = function(fen, container) {
+var Tree = function(fen, container, parse) {
     
     Current.RLIST = fen.split("/");
+    Current.RTEAM = "team1";
+    Current.BTEAM = "team2";
     var rounds = Current.RLIST.length;
     var teams = fen.length - Current.RLIST.length + 2;
     var games = fen.length - Current.RLIST.length + 1;
 
     var output = "";
 
-    console.log("Rounds: " + rounds + ", Teams: " + teams + ", Games: " + games);
     for(var i = 0; i < rounds; i++) {
         output+=Bracket.ROUNDSTART;
+        update();
         for(var j = 0; j < Current.RLIST[Current.ROUND].length; j++) {
             switch (Current.RLIST[Current.ROUND][j]) {
                 case 'n': output += Bracket.PGAME;

@@ -52,21 +52,21 @@ class TeamController < ApplicationController
 
     def add_player
         if (params.has_key?(:tournament_name) &&
-            params.has_key?(:seed) &&
+            params.has_key?(:team_name) &&
             params.has_key?(:summoner_name))
 
             tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
 
-            if (Team.where(tournament_id: tournament_id, seed: params[:seed]).first.nil? ||
+            if (Team.where(tournament_id: tournament_id, team_name: params[:team_name]).first.nil? ||
                 Player.where(summoner_name: params[:summoner_name]).first.nil?)
                 render json: {status: false}
             else
-                seed = params[:seed]
+                team_name = params[:team_name]
 
                 command = "
                 SELECT T.id
                 FROM teams T
-                WHERE T.tournament_id = #{tournament_id} AND t.seed = #{seed}
+                WHERE T.tournament_id = #{tournament_id} AND T.team_name = #{team_name}
                 "
                 team_id = ActiveRecord::Base.connection.execute(command)[0]["id"]
                 name = params[:summoner_name]
