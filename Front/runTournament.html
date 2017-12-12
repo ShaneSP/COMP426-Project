@@ -82,7 +82,7 @@
                 url: "http://localhost:3000/get_teams_and_seed?tournament_name=" + name,
                 success: function(response){
                     console.log(response.result.length);
-                    fen = fenGen(response.result.length,0)
+                    fen = fenGen(response.result.length,0);
                     tree = new Tree(fen, $("#container1")[0], response);
                     $("div[class*=team-]").on("mouseover", function() {
                       $(this).parent().css('width','240px');
