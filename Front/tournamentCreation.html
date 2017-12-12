@@ -7,6 +7,17 @@
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/tournamentCreation.js"></script>
     <link rel="stylesheet" href="css/tournamentCreationStyle.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 </head>
 
 <body>
@@ -18,12 +29,47 @@
                         <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
                     </a>
                 </li>
+                <li class="highlight"> <a id="toptab" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                <li class="highlight"> <a id="toptab" href="tournaments.html" target="_blank"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
             </ul>
         </nav>
     </div>
-    <div id = "wrapper"></div>
-    <button id="tournament_button" type="button"> 
-            Create Tournament
-                </button>
+    <div id="content" style="margin-top: 80px; margin-left: 10px;">
+        <h1>Create a Tournament</h1>
+        <div class="container" id="form_container">
+            <div id = "wrapper"></div>
+            <button id="tournament_button" type="button" class="btn btn-primary waves-effect waves-light"> 
+                Create Tournament
+            </button>
+            <a id = "creation_hyperlink" href="tournaments.html" style="margin-left: 290px; color: white; position: absolute; margin-top: 65px;">Return to Tournaments</a>
+        </div>
+        <div id="rightBlock">
+            <b>How do I create a tournament?</b><br/><br/>
+
+            It's simple! Just fill out the form and you'll be on your way to starting your own League of Legends showdown.
+            Fill out what you want your tournament to be called, along with the Summoner Name of your organizer (probably you).
+            Next, go back to the tournaments page and find your new entry to start filling in your participants, teams, and all other information.
+            Then when you're ready, just go ahead and click play to start the bracket of your very own League of Legends tournament.
+            <div id="teemo">
+                <img src="assets/teemo.png" style="height: 100%; width: 100%;">
+            </div>
+        </div>
+    </div>
+
+    
+    <div id = "footer">
+        <div class = "div-darkGray" id = "contact">
+            <div id="footercontact">
+                <br/>
+                Logged in as: <div id="result" style="display: inline;"></div><br/>
+                <span class="glyphicon glyphicon-envelope"></span>Contact Us
+            </div>
+            <div id="footerinfo">
+                <br/>
+                <br/>
+                KMProductions&trade; 2017
+            </div>
+        </div>
+    </div>
 </body>
 </html>

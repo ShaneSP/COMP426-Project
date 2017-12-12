@@ -4,7 +4,7 @@ body {
     "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    background-color: white;
+    background-image: url("http://lol-wallpapers.com/wp-content/uploads/2017/01/Snowdown-Background-League-of-Legends-Artwork-Wallpaper-lol.jpg");
     padding: 0;
     margin: 0;
 }
@@ -64,7 +64,8 @@ li {
 
 li a {
     display: block;
-    color: inherit;
+    color: black;
+    font-size: 20px;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -93,13 +94,53 @@ li a.active:hover {
     text-decoration: none;
 }
 
-#wrapper {
-    margin-top: 60px;
-    text-align: center;
-}
-
 #tournament_button {
     position: absolute;
     margin-top: 15px;
-    right: 45.75%;
+    margin-left: 265px;
+}
+
+div div#form_container{
+    float: left;
+    width: 700px;
+}
+
+div h1{
+    margin-left: 230px;
+    color: white;
+    margin-top: 200px;
+    width: 700px;
+}
+
+div#rightBlock {
+    float: right;
+    width: 600px;
+    margin-right: 100px;
+}
+
+div#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+div#footercontact{
+    float: left;
+    margin-left: 5px;
+}
+
+div#footerinfo{
+    float: right;
+    margin-right: 5px;
+}
+
+.div-darkGray {
+    width: 100%;
+    background-color: #7F7F7F;
+    padding-bottom: 75px;
+}
+
+div div#teemo{
+    width: 250px;
+    margin-left: 150px;
 }
