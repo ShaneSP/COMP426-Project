@@ -169,6 +169,9 @@ div#intro{
     font-size: 6vw;
 }
 
+h1{
+  padding: 15px;
+}
 div.background {
   margin: 30px;
   background-color: #ffffff;
