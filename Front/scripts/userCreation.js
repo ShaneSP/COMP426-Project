@@ -36,6 +36,22 @@ var loginButton = function(wrapper) {
         d.preventDefault();
         submit_button.onclick(d);
     });
+    summoner_name_form.onchange = function(f) {
+        f.preventDefault();
+        var req_summoner_name = $(summoner_name_form).find('.req_sum_name').val();
+
+        $.ajax({
+            url: 'http://localhost:3000/check_user?username=' + req_summoner_name,
+            success: function(e){
+                console.log(e);
+                if(e.status)  {
+                    //SET BOX TO GREEN
+                } else {
+                    //SET BOX TO RED
+                }
+            }
+        })
+    }
 
     submit_button.onclick = function (e)   {
         e.preventDefault();
@@ -83,8 +99,7 @@ var loginButton = function(wrapper) {
         $(last_name_form).find('.req_las_name').val("");
         $(password_form).find('.req_password').val(""); 
         
-        
-}  
+    }  
 }
 
     
