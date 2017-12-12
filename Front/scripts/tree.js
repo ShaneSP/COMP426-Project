@@ -56,7 +56,7 @@ var update = function () {
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.RSEED+"\" class=\"draggable team-bye\">"+Current.RTEAM+"</div></div>\n" +
                 "</div>\n",
         BYGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +

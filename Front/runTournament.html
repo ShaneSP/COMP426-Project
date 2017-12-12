@@ -82,66 +82,103 @@
                 url: "http://localhost:3000/get_teams_and_seed?tournament_name=" + name,
                 success: function(response){
                     console.log(response.result.length);
-                    fen = fenGen(response.result.length,0);
-                    tree = new Tree(fen, $("#container1")[0], response);
-                    $("div[class*=team-]").on("mouseover", function() {
-                      $(this).parent().css('width','240px');
-                    });
 
-                    $('div[class*=btn-]').on("mouseleave", function() {
-                      $(this).css('width','210px');
-                    });
+                    $.ajax({
+                      url: "http://localhost:3000/get_fen?tournament_name=" + name,
+                      success: function(fenResponse){
+                        console.log(fenResponse);
+                        if (fenResponse.fen === "") {
+                            fen = fenGen(response.result.length,0);
+                        }else{
+                          fen = fenResponse.fen;
+                        }
+                        console.log(fen);
+                        tree = new Tree(fen, $("#container1")[0], response);
+                        $("div[class*=team-]").on("mouseover", function() {
+                          $(this).parent().css('width','240px');
+                        });
 
-                    $(".draggable").draggable({
-                      revert: true,
-                      start: function(event, ui) {
-                        origin = event.target.parentNode;
-                      }
-                    });
+                        $('div[class*=btn-]').on("mouseleave", function() {
+                          $(this).css('width','210px');
+                        });
 
-                    $(".droppable").droppable({
-                      accept: ".draggable",
-                      drop: function(event, ui) {
-                              var oldGame = $(ui.draggable).parent().parent().attr("class");
-                              if ($(this).children().length > 0) {
-                                var move = $(this).children().detach();
-                                $(ui.draggable).parent().append(move);
-                              }
+                        $(".draggable").draggable({
+                          revert: true,
+                          start: function(event, ui) {
+                            origin = event.target.parentNode;
+                          }
+                        });
 
-                              $(this).append($(ui.draggable).css({top: 0, left: 0}));
+                        $(".droppable").droppable({
+                          accept: ".draggable",
+                          drop: function(event, ui) {
+                                  var oldGame = $(ui.draggable).parent().parent().attr("class");
+                                  if ($(this).children().length > 0) {
+                                    var move = $(this).children().detach();
+                                    $(ui.draggable).parent().append(move);
+                                  }
 
-                              //update fen
-                              //fen.length
-                              var temp = fen;
-                              var seed = $(ui.draggable).attr("id");
-                              //substr is fen index
+                                  $(this).append($(ui.draggable).css({top: 0, left: 0}));
 
-                              var newGame = $(ui.draggable).parent().parent().attr("class");
-                              var color = $(ui.draggable).attr("class").split(' ')[1].substring(5);
-                              //index of fen w/o '/'s
-                              newGame = newGame.substring(5);
-                              oldGame = oldGame.substring(5);
-                              var count = 0;
-                              for(var i = 0; i < temp.length; i++) {
-                                if(temp[i] !== "/") {
-                                    if(count === newGame*1) {
-                                        //change the char at fen locale
-                                        if(color === "r") {
-                                            temp = temp.substring(0, i) + "b" + temp.substring(i + 1);
-                                        } else if(color === "b") {
-                                            temp = temp.substring(0, i) + "r" + temp.substring(i + 1);
+                                  //update fen
+                                  //fen.length
+                                  var temp = fen;
+                                  var seed = $(ui.draggable).attr("id");
+                                  //substr is fen index
+
+                                  var newGame = $(ui.draggable).parent().parent().attr("class");
+                                  var color = $(ui.draggable).attr("class").split(' ')[1].substring(5);
+                                  //index of fen w/o '/'s
+                                  newGame = newGame.substring(5);
+                                  oldGame = oldGame.substring(5);
+                                  var count = 0;
+                                  var count0 = 0;
+                                  for(var i = 0; i < temp.length; i++) {
+                                    if(newGame*1 !== 0) {
+                                      if(temp[i] !== "/") {
+                                        if(count === newGame*1) {
+                                            //change the char at fen locale
+                                            if(temp[i] !== "e" && color !== "bye") {
+                                              temp = temp.substring(0, i) + "n" + temp.substring(i + 1);
+                                            } else if(color === "r") {
+                                                temp = temp.substring(0, i) + "r" + temp.substring(i + 1);
+                                            } else if(color === "b") {
+                                                temp = temp.substring(0, i) + "b" + temp.substring(i + 1);
+                                            } else if(color === "bye") {
+                                              temp = temp.substring(0, i) + "f" + temp.substring(i + 1);
+                                            }
                                         }
+                                        if(count0 === oldGame*1) {
+                                            //change the char at fen locale
+                                            if(color === "r") {
+                                                temp = temp.substring(0, i) + "r" + temp.substring(i + 1);
+                                            } else if(color === "b") {
+                                                temp = temp.substring(0, i) + "b" + temp.substring(i + 1);
+                                            } else if(color === "bye") {
+                                              temp = temp.substring(0, i) + "x" + temp.substring(i + 1);
+                                            }
+                                        }
+                                        count++;
+                                        count0++;
+                                      }
                                     }
-                                    count++;
-                                }
-                              }
+                                  }
 
-                              fen = temp;
-                              $.ajax({
-                                url: 
-                              });
-                            }
-                    });
+                                  fen = temp;
+                                  $.ajax({
+                                    url: "http://localhost:3000/set_fen?tournament_name=" + name + "&updated_fen=" + fen,
+                                    success: function(response){
+                                      console.log(response);
+                                    }
+                                  });
+                                }
+                        });
+                      }
+                    })
+
+
+
+
                 }
               })
 
