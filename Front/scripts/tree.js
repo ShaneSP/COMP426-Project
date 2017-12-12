@@ -44,19 +44,19 @@ var update = function () {
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         PGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.BTEAM+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
+                "    <div class=\"droppable btn-t\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.BSEED+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
                 "</div>\n",
         RGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-t\"></div>\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.BTEAM+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.BSEED+"\" class=\"draggable team-b\">"+Current.BTEAM+"</div></div>\n" +
                 "</div>\n",
         BGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-t\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div class=\"droppable btn-t\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +
                 "</div>\n",
         BYEGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
-                "    <div class=\"droppable btn-b\"><div id=\""+Current.RTEAM+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
+                "    <div class=\"droppable btn-b\"><div id=\""+Current.RSEED+"\" class=\"draggable team-r\">"+Current.RTEAM+"</div></div>\n" +
                 "</div>\n",
         BYGAME : "<div class=\"game-"+Current.GAME+"\">\n" +
                 "    <div class=\"droppable btn-b\"></div>\n" +

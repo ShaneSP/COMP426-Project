@@ -15,6 +15,7 @@ class TournamentController < ApplicationController
      render json: {status: false}
    end
   end
+
   def get_list
     if(params.has_key?(:summoner_name))
       if (Player.where(summoner_name: params[:summoner_name]).first.nil?)
@@ -76,5 +77,42 @@ class TournamentController < ApplicationController
    else
    render json: {status: false}
  end
+  end
+
+  def modify_fen
+    if (params.has_key?(:tournament_name) &&
+      params.has_key?(:updated_fen))
+
+      tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
+
+      if (Tournament.where(id: tournament_id).first.nil?)
+        render json: {status: false}
+      else
+        @tournament = Tournament.where(id: tournament_id).first
+        @tournament.fen = params[:updated_fen]
+        @tournament.save
+
+        render json: {status: true}
+      end
+    else
+      render json: {status: false}
+    end
+  end
+
+  def get_fen
+    if (params.has_key?(:tournament_name))
+
+      tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
+
+      if (Tournament.where(id: tournament_id).first.nil?)
+        render json: {status: false}
+      else
+        fen = Tournament.where(id: tournament_id).first.fen
+
+        render json: {fen: fen}
+      end
+    else
+      render json: {status: false}
+    end
   end
 end
