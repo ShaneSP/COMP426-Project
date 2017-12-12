@@ -70,7 +70,7 @@ class TeamController < ApplicationController
                 command = "
                 SELECT T.id
                 FROM teams T
-                WHERE T.tournament_id = #{tournament_id} AND T.team_name = #{team_name}
+                WHERE T.tournament_id = #{tournament_id} AND T.team_name = '#{team_name}'
                 "
                 team_id = ActiveRecord::Base.connection.execute(command)[0]["id"]
                 name = params[:summoner_name]
