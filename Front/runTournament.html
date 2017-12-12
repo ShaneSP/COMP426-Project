@@ -102,6 +102,7 @@
                     $(".droppable").droppable({
                       accept: ".draggable",
                       drop: function(event, ui) {
+                              var oldGame = $(ui.draggable).parent().parent().attr("class");
                               if ($(this).children().length > 0) {
                                 var move = $(this).children().detach();
                                 $(ui.draggable).parent().append(move);
@@ -112,12 +113,14 @@
                               //update fen
                               //fen.length
                               var temp = fen;
-                              var team = $(ui.draggable).attr("id");
+                              var seed = $(ui.draggable).attr("id");
                               //substr is fen index
 
-                              var game = $(ui.draggable).parent().parent().attr("class");
-                              game = game.substring(5);
-                              console.log(game + " :: " + team);
+                              var newGame = $(ui.draggable).parent().parent().attr("class");
+                              //index of fen w/o '/'s
+                              newGame = newGame.substring(5);
+                              oldGame = oldGame.substring(5);
+                              console.log(oldGame + " :: " + newGame);
                             }
                     });
                 }
