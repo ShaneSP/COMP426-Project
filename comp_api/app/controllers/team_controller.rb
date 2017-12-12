@@ -8,11 +8,13 @@ class TeamController < ApplicationController
 
             if(Team.where(team_name: params[:team_name], tournament_id: tournament_id).count == 0) &&
                 Team.where(seed: params[:seed], tournament_id: tournament_id).count == 0))
+                
                 @team = Team.new
                 @team.team_name = params[:team_name]
                 @team.tournament_id = tournament_id
                 @team.seed = params[:seed]
                 @team.save
+
                 render json: @team
             end
         else
@@ -22,7 +24,6 @@ class TeamController < ApplicationController
 
     def get_list
         if (params.has_key?(:tournament_name))
-
             tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
 
             if (Team.where(tournament_id: tournament_id).first.nil?)

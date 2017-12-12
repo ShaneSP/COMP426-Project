@@ -9,10 +9,11 @@ class AccountManagerController < ApplicationController
     # render json: records_array
 
     if (params.has_key?(:username) &&
-       params.has_key?(:password) &&
-       params.has_key?(:firstname) &&
-       params.has_key?(:lastname) &&
-       Player.where(summoner_name: params[:username]).count == 0)
+      params.has_key?(:password) &&
+      params.has_key?(:firstname) &&
+      params.has_key?(:lastname) &&
+      Player.where(summoner_name: params[:username]).count == 0)
+      
       @user = Player.new
       @user.summoner_name = params[:username]
       @user.password = params[:password]
@@ -27,19 +28,23 @@ class AccountManagerController < ApplicationController
       render json: response
     end
   end
+  
   def login
     if (params.has_key?(:username) &&
-       params.has_key?(:password) &&
-       !Player.where(summoner_name: params[:username]).select(:password).first.nil? &&
-       Player.where(summoner_name: params[:username]).select(:password).first.password == params[:password])
-       render json: {status: true, name: params[:username]}
-     else
-       render json: {status: false}
+      params.has_key?(:password) &&
+      !Player.where(summoner_name: params[:username]).select(:password).first.nil? &&
+      Player.where(summoner_name: params[:username]).select(:password).first.password == params[:password])
+      
+      render json: {status: true, name: params[:username]}
+    else
+      render json: {status: false}
     end
   end
+
   def get_user_information
     if (params.has_key?(:username) &&
-        !Player.where(summoner_name: params[:username]).first.nil?)
+      !Player.where(summoner_name: params[:username]).first.nil?)
+      
       @user = Player.where(summoner_name: params[:username]).first
       info = {
         summoner_name: @user.summoner_name,
