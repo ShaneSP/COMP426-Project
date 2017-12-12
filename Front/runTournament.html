@@ -126,7 +126,7 @@
                                 if(temp[i] !== "/") {
                                     if(count === newGame) {
                                         //change the char at fen locale
-                                        temp[i] = "b";   
+                                        temp = temp.substring(0, i) + "b" + temp.substring(i + 1);   
                                     }
                                     count++;
                                 }
