@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>User Profile</title>
+        <title>Help</title>
         <link rel="icon" type="image/gif" href="https://legacies.lol/img/L-icon.png">
         <meta name="google-signin-client_id" content="254551835698-pbg8504n62e1p14k8n8nal2davvb0p18.apps.googleusercontent.com">
 
@@ -12,7 +12,7 @@
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/user_profile.css">
+        <link rel="stylesheet" type="text/css" href="css/help.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -37,20 +37,52 @@
                             <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
                         </a>
                     </li>
-                    <li class="highlight"> <a id="toptab" class="active" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li class="highlight"> <a id="toptab" href="#intro"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
                     <li class="highlight"> <a id="toptab" href="tournaments.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
-                    <li class="highlight"> <a id="toptab" href="help.html"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
-                    
+                    <li class="highlight"> <a id="toptab" class="active" href="#start"><span class="glyphicon glyphicon-grain" aria-hidden="true"></span> Intro</a></li>
+                    <li class="highlight"> <a id="toptab" href="#faq"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> FAQ</a></li>
+                    <li class="highlight"> <a id="toptab" href="#common_issues"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> Challenges</a></li>
+
                     <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
-                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="user"></div></a></li>
-                    <li class = "right" id = "login"> <a id="toptab" class="login" href="loginPage.html"><div id="login_result"></div></a></li>
+                    <li class = "right" id = "signout"> <a id="toptab" class="signout" href="user_profile.html"><div id="user"></div></a></li>
                     <li class = "right"> <div class="g-signin2" data-onsuccess="onSignIn"></div></li>
                 </ul>
             </nav>
 
-            <div id = "content" style="margin-top: 80px;">
-                <h1>Welcome <div id="result" style="display: inline;"></h1>
-                
+            <div id = "content">
+                <div class="div-white" id="intro">
+                </div>
+
+                <div class="div-gray" id="start">
+                    <h1 style="text-align: left;"><span class="glyphicon glyphicon-grain" aria-hidden="true"></span> <u>GETTING STARTED:</u> Building Your First Tournament</h1>
+                </div>
+
+                <div class="div-white" id="image1">
+                </div>
+
+                <div class="div-gray" id="faq">
+                    <h1 style="text-align: left;"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <u>FAQ:</u> Frequently Asked Questions</h1>                    
+                </div>
+
+                <div class="div-gray" id="image2">
+                </div>
+
+                <div class="div-gray" id="common_issues">
+                    <h1 style="text-align: left;"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span> <u>Common Challenges:</u> Roadblocks To Be Aware Of</h1>                    
+                </div>
+
+                <div class="div-gray" id="image3">
+                </div>
+
+                <div class="div-gray" id="end">
+                    <div style="text-align: center">
+                        <br/>
+                        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button">
+                            <span class="glyphicon glyphicon glyphicon-chevron-up"></span><br/>
+                            Back to Top
+                        </a><br/><br/>
+                    </div>
+                </div>
             </div>
 
             <div id = "footer">
@@ -62,6 +94,7 @@
                     </div>
                     <div id="footerinfo">
                         <br/>
+                        <br/>
                         KMProductions&trade; 2017
                     </div>
                 </div>
@@ -69,6 +102,27 @@
         </div>
 
         <script>
+            $(document).ready(function(){
+            $(window).scroll(function () {
+                    if ($(this).scrollTop() > 50) {
+                        $('#back-to-top').fadeIn();
+                    } else {
+                        $('#back-to-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-to-top').click(function () {
+                    $('#back-to-top').tooltip('hide');
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 800);
+                    return false;
+                });
+
+                $('#back-to-top').tooltip('show');
+
+            });
+
             function clear_state(){
                 localStorage.setItem("username", "");
                 localStorage.setItem("login_state", "Log In");
