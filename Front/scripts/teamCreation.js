@@ -3,7 +3,33 @@ $(document).ready(function () {
 });
 
 var teamCreationButton = function(team) {
-    
+
+var data = [{text: "same"},
+    {text:"as"},
+    {text:"fuck"},
+];
+
+var player1drop = document.getElementById("player1dropid");
+var player2drop = document.getElementById("player2dropid");
+var player3drop = document.getElementById("player3dropid");
+var player4drop = document.getElementById("player4dropid");
+var player5drop = document.getElementById("player5dropid");
+
+player1drop.options.length = 1;
+player2drop.options.length = 1;
+player3drop.options.length = 1;
+player4drop.options.length = 1;
+player5drop.options.length = 1;
+
+for(var i = 0; i < data.length; i++)    {
+    var d = data[i];
+    player1drop.options.add(new Option(d.text, i+1));
+    player2drop.options.add(new Option(d.text, i+1));
+    player3drop.options.add(new Option(d.text, i+1));
+    player4drop.options.add(new Option(d.text, i+1));
+    player5drop.options.add(new Option(d.text, i+1));    
+}
+
 var more_teams_button = document.getElementById("moreTeamsButton");
 var to_tournaments_button = document.getElementById("returnToTournament");
 var team_name_form = $("<form id = \"team1nameform\">Team Name<input class = \"req_team_name\" type=\"text\"></form>");
