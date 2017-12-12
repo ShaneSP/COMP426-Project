@@ -88,41 +88,17 @@
               var jsonResponseFromServer =
               {
                 "result": [
-                  {
-                    "seed": 1,
-                    "team_name": "TORCH IT UP"
-                  },
-                  {
-                    "seed": 2,
-                    "team_name": "Cool or Cold?"
-                  },
-                  {
-                    "seed": 3,
-                    "team_name": "Humus"
-                  },
-                  {
-                    "seed": 4,
-                    "team_name": "Human alien monster thing"
-                  },
-                  {
-                    "seed": 5,
-                    "team_name": "Artists Unite"
-                  },
-                  {
-                    "seed": 6,
-                    "team_name": "Hearthstone Legendaries"
-                  },
-                  {
-                    "seed": 7,
-                    "team_name": "Fancy Hair"
-                  },
-                  {
-                    "seed": 8,
-                    "team_name": "Super Tall"
-                  }
+                  {"seed": 1, "team_name": "TORCH IT UP"},
+                  {"seed": 2, "team_name": "Cool or Cold?"},
+                  {"seed": 3, "team_name": "Humus"},
+                  {"seed": 4, "team_name": "Human alien monster thing"},
+                  {"seed": 5, "team_name": "Artists Unite"},
+                  {"seed": 6, "team_name": "Hearthstone Legendaries"},
+                  {"seed": 7, "team_name": "Fancy Hair"},
+                  {"seed": 8, "team_name": "Super Tall"}
                 ]
-              }
-              var tree = new Tree(fen, $("#container1")[0]);
+              };
+              var tree = new Tree(fen, $("#container1")[0], jsonResponseFromServer);
 
               $("div[class*=team-]").on("mouseover", function() {
                 $(this).parent().css('width','240px');
@@ -147,7 +123,7 @@
                           $(ui.draggable).parent().append(move);
                         }
 
-                        $(this).append($(ui.draggable));
+                        $(this).append($(ui.draggable).css({top: 0, left: 0}));
 
                         //update fen
                         var team = $(ui.draggable).attr("id");

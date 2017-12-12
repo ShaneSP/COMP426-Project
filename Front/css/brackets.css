@@ -2,6 +2,7 @@ html, body, div, span, ol, ul, li, {
     margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; 
 }
 body { 
+    font-family: 'Roboto', sans-serif;
     line-height: 1; 
 }
 
@@ -26,6 +27,11 @@ body {
     width: 15%;
     /* height: 90%; */
 }
+
+[class*="game-"] {
+    font-size: 12px;
+}
+
 .round-0 [class*="game-"] {
     padding: 15px;
 }
@@ -48,6 +54,10 @@ body {
     height: 30px;
     line-height: 38px;
     border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
     background: #333;
 }
 
