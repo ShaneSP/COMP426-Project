@@ -121,13 +121,14 @@
                               newGame = newGame.substring(5);
                               oldGame = oldGame.substring(5);
                               console.log(oldGame + " :: " + newGame);
+                              var count = 0;
                               for(var i = 0; i < temp.length; i++) {
                                 if(temp[i] !== "/") {
-                                    if(newGame > 0) {
+                                    if(count === newGame) {
                                         //change the char at fen locale
                                         temp[i] = "b";   
                                     }
-                                newGame--;
+                                    count++;
                                 }
                               }
                               console.log(temp);
