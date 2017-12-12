@@ -121,6 +121,16 @@
                               newGame = newGame.substring(5);
                               oldGame = oldGame.substring(5);
                               console.log(oldGame + " :: " + newGame);
+                              for(var i = 0; i < temp.length; i++) {
+                                if(temp[i] !== "/") {
+                                    if(newGame > 0) {
+                                        //change the char at fen locale
+                                        temp[i] = "b";   
+                                    }
+                                newGame--;
+                                }
+                              }
+                              console.log(temp);
                             }
                     });
                 }
