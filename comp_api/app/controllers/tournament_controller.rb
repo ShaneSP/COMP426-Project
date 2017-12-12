@@ -85,10 +85,10 @@ class TournamentController < ApplicationController
 
       tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
 
-      if (Tournament.where(tournament_id: tournament_id).first.nil?)
+      if (Tournament.where(id: tournament_id).first.nil?)
         render json: {status: false}
       else
-        @tournament = Tournament.where(tournament_id: tournament_id).first
+        @tournament = Tournament.where(id: tournament_id).first
         @tournament.fen = params[:updated_fen]
         @tournament.save
 
@@ -104,10 +104,10 @@ class TournamentController < ApplicationController
 
       tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
 
-      if (Tournament.where(tournament_id: tournament_id).first.nil?)
+      if (Tournament.where(id: tournament_id).first.nil?)
         render json: {status: false}
       else
-        fen = Tournament.where(tournament_id: tournament_id).first.fen
+        fen = Tournament.where(id: tournament_id).first.fen
 
         render json: {fen: fen}
       end
