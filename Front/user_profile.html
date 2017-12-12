@@ -49,8 +49,9 @@
             </nav>
 
             <div id = "content">
-                <h1>Welcome <div id="result" style="display: inline;"></h1>
-                    <p id="test"></p>
+                <h1><div id="result" style="display: inline;"><div id="user_welcome" style="display: inline;"></div></h1>
+
+                <div id="user_level" style="display: inline;"></p>
                 
             </div>
 
@@ -77,29 +78,21 @@
                 localStorage.setItem("user_profile", "");
             }
 
-            document.addEventListener('DOMContentLoaded', function loadDoc() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("test").innerHTML = this.responseText;
+            window.onload = function loadDoc() {
+                document.getElementById("user").innerHTML = localStorage.getItem("username");
+                document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
+                document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
+                document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
+
+                $.ajax({
+                    url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + localStorage.getItem("username") + "?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
+                    success: function(response){
+                            document.getElementById("user_welcome").innerHTML = "Welcome " + response.name;
+                            document.getElementById("user_name").innerHTML = response.name;
+                            document.getElementById("user_level").innerHTML = "Summoner Level: " + response.summonerLevel;
                     }
-                };
-                xhttp.open( "GET", "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/Cielka?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c", true);
-                xhttp.setRequestHeader("Accept", "application/json; charset=utf-8");
-                xhttp.send();
-            },false);
-
-            function parseData(xhttp){
-                if(xhttp.readyState==4 && xhttp.status==200){
-                var data = JSON.parse(xhttp.responseText);
-                console.log(data);
-                }
+                })
             }
-
-            document.getElementById("result").innerHTML = localStorage.getItem("username");
-            document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
-            document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
-            document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
         </script>
     </body>
 </html>
