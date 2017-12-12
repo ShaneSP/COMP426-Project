@@ -4,6 +4,8 @@
 var fenGen = function(teams, round) {
     if(teams === 2) {
         return "e";
+    } else if(teams < 2) {
+        return "";
     }
     var fen = "";
     var bye = false;
