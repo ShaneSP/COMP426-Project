@@ -37,16 +37,6 @@ class AccountManagerController < ApplicationController
        render json: {status: false}
     end
   end
-  def check_valid_name
-    if (params.has_key?(:username) &&
-      params[:username].length > 2 &&
-      params[:username].length < 17 &&
-      Player.where(summoner_name: params[:username]).first.nil?)
-        render json: 0
-    else
-      render json: 1
-    end
-  end
   def get_user_information
     if (params.has_key?(:username) &&
         !Player.where(summoner_name: params[:username]).first.nil?)
@@ -91,5 +81,17 @@ class AccountManagerController < ApplicationController
     end
 
     render json: {names: names}
+  end
+
+  def check_user
+    if (params.has_key?(:username) &&
+      params[:username].length > 2 &&
+      params[:username].length < 17 &&
+      Player.where(summoner_name: params[:username]).first.nil?)
+      
+      render json: {status: true}
+    else 
+      render json: {status: false}
+    end
   end
 end

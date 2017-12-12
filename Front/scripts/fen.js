@@ -4,6 +4,8 @@
 var fenGen = function(teams, round) {
     if(teams === 2) {
         return "e";
+    } else if(teams < 2) {
+        return "";
     }
     var fen = "";
     var bye = false;
@@ -26,8 +28,8 @@ var fenGen = function(teams, round) {
         }
         games--;
     }
-    console.log(teams + " :: " + Math.floor(teams / 2) / 2);
+    console.log(teams + " ?? " + Math.floor(teams / 2) / 2);
 
-    return fen + "/" + fenGen(Math.floor(teams / 2), ++round)
+    return fen + "/" + fenGen(Math.floor(teams / 2), ++round);
 }
 

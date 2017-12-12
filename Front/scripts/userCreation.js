@@ -18,7 +18,7 @@ var loginButton = function(wrapper) {
     $(wrapper).append(summoner_name_form, first_name_form, last_name_form, password_form);
 
     var submit_button = document.getElementById("submit_button");
-    
+
 
     first_name_form.on("submit", function(a)  {
         a.preventDefault();
@@ -36,6 +36,25 @@ var loginButton = function(wrapper) {
         d.preventDefault();
         submit_button.onclick(d);
     });
+    // summoner_name_form.on("keytyped", function(d){
+    //   console.log("here");
+    // })
+    // summoner_name_form.onchange = function(f) {
+    //     f.preventDefault();
+    //     var req_summoner_name = $(summoner_name_form).find('.req_sum_name').val();
+    //     console.log("here");
+    //     $.ajax({
+    //         url: 'http://localhost:3000/check_user?username=' + req_summoner_name,
+    //         success: function(e){
+    //             console.log(e);
+    //             if(e.status)  {
+    //                 //SET BOX TO GREEN
+    //             } else {
+    //                 //SET BOX TO RED
+    //             }
+    //         }
+    //     })
+    // }
 
     submit_button.onclick = function (e)   {
         e.preventDefault();
@@ -44,7 +63,7 @@ var loginButton = function(wrapper) {
         var req_first_name = $(first_name_form).find('.req_fir_name').val();
         var req_last_name = $(last_name_form).find('.req_las_name').val();
         var req_password = $(password_form).find('.req_password').val();
-    
+
         if(req_summoner_name == "" ) {
             alert("You forgot your Summoner name silly!");
             $(summoner_name_form).find('.req_sum_name').val("");
@@ -53,17 +72,17 @@ var loginButton = function(wrapper) {
 
         if(req_first_name == "")    {
             alert("You forgot your first name silly!");
-            $(first_name_form).find('.req_fir_name').val("");            
+            $(first_name_form).find('.req_fir_name').val("");
             return false;
         }
         if(req_last_name == "")     {
             alert("You forgot your last name silly!");
             $(last_name_form).find('.req_las_name').val("");
-            return false;            
+            return false;
         }
         if(req_password == "")  {
             alert("You forgot to pick a password silly!");
-            $(password_form).find('.req_password').val(""); 
+            $(password_form).find('.req_password').val("");
             return false;
         }
         console.log(req_summoner_name);
@@ -81,10 +100,7 @@ var loginButton = function(wrapper) {
         $(summoner_name_form).find('.req_sum_name').val("");
         $(first_name_form).find('.req_fir_name').val("");
         $(last_name_form).find('.req_las_name').val("");
-        $(password_form).find('.req_password').val(""); 
-        
-        
-}  
-}
+        $(password_form).find('.req_password').val("");
 
-    
+    }
+}
