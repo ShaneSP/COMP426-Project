@@ -2,10 +2,11 @@ html, body, div, span, ol, ul, li, {
     margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; 
 }
 body { 
+    font-family: 'Roboto', sans-serif;
     line-height: 1; 
 }
 
-#container {
+#container1 {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,17 +14,22 @@ body {
     position: absolute;
     padding: 10px;
     width: 70%;
-    left: 15%;
+    left: 10%;
     top: 15%;
 }
 
 [class*="round-"] {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    justify-content: center;
+    padding: 30px;
     float: left;
     width: 15%;
     /* height: 90%; */
+}
+
+[class*="game-"] {
+    font-size: 12px;
 }
 
 .round-0 [class*="game-"] {
@@ -42,11 +48,16 @@ body {
     padding: 120px;
 }
 
+
 [class*="team-"] {
     width: 210px;
     height: 30px;
     line-height: 38px;
     border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
     background: #333;
 }
 

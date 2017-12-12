@@ -110,8 +110,13 @@
                               $(this).append($(ui.draggable).css({top: 0, left: 0}));
 
                               //update fen
+                              //fen.length
+                              var temp = fen;
                               var team = $(ui.draggable).attr("id");
+                              //substr is fen index
+
                               var game = $(ui.draggable).parent().parent().attr("class");
+                              game = game.substring(5);
                               console.log(game + " :: " + team);
                             }
                     });

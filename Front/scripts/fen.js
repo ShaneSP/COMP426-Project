@@ -29,7 +29,5 @@ var fenGen = function(teams, round) {
     console.log(teams + " :: " + Math.floor(teams / 2) / 2);
 
     return fen + "/" + fenGen(Math.floor(teams / 2), ++round)
-
-
-
 }
+
