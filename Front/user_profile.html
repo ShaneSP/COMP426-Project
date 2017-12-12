@@ -49,9 +49,14 @@
             </nav>
 
             <div id = "content">
-                <h1><div id="result" style="display: inline;"><div id="user_welcome" style="display: inline;"></div></h1>
+                <div id=container>
+                    <h1><div id="result" style="display: inline;"><div id="user_welcome" style="display: inline;"></div></h1>
 
-                <div id="user_level" style="display: inline;"></p>
+                    <div id="user_region"></div>
+                    <div id="user_level"></div>
+                </div>
+                <h3>Most Recent Game Stats:</h3>
+                <div id="user_game1"></div>
                 
             </div>
 
@@ -79,17 +84,31 @@
             }
 
             window.onload = function loadDoc() {
+                
                 document.getElementById("user").innerHTML = localStorage.getItem("username");
                 document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
                 document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
                 document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
 
                 $.ajax({
-                    url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + localStorage.getItem("username") + "?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
+                    url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + "Cielka" + "?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
                     success: function(response){
                             document.getElementById("user_welcome").innerHTML = "Welcome " + response.name;
-                            document.getElementById("user_name").innerHTML = response.name;
-                            document.getElementById("user_level").innerHTML = "Summoner Level: " + response.summonerLevel;
+                            document.getElementById("user_level").innerHTML = "<h4><b>Summoner Level:</b> " + response.summonerLevel+ "</h4>";
+                            var user_accountid = response.accountId;
+
+                            $.ajax({
+                                url: "https://na1.api.riotgames.com/lol/match/v3/matchlists/by-account/" + user_accountid + "/recent?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
+                                success: function(match_response){
+                                    document.getElementById("user_region").innerHTML = "<h4><b>Region:</b> " + match_response.matches[0].platformId + "</h4>";
+                                    var champ_id = match_response.matches[0].champion;
+                                    document.getElementById("user_game1").innerHTML = "<div class=\"panel panel-default\">" + "<div class=\"panel-body\">" + " Role: " + match_response.matches[0].role + " Lane Played: " + match_response.matches[0].lane + " Season: " + match_response.matches[0].season  + "</div>" + "</div>";
+                                }
+                            })
+                    },
+                    error: function(response){
+                        console.log(response);
+                        document.getElementById("user_welcome").innerHTML = "You do not have a valid summoner name.";
                     }
                 })
             }
