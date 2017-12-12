@@ -90,11 +90,29 @@ var Tree = function(fen, container, jsonResponse) {
                                 Current.BSEED = -1;
                                 update();
                         }
+                } else if(Current.ROUND !== 0 && Current.RLIST[Current.ROUND][j] !== "e") {
+                        if (Current.RLIST[Current.ROUND][j] !== "r") {
+                                Current.RSEED = array[Current.TEAM - (j / 2)].seed;
+                                Current.RTEAM = array[Current.TEAM - (j / 2)].team_name;
+                                update();
+                        } else if (Current.RLIST[Current.ROUND][j] !== "b") {
+                                Current.BSEED = array[Current.TEAM - (j / 2)].seed;
+                                Current.BTEAM = array[Current.TEAM - (j / 2)].team_name;
+                                update();
+                        } else if (Current.RLIST[Current.ROUND][j] !== "n") {
+                                Current.RSEED = array[Current.TEAM - 1 - (j / 2)].seed;
+                                Current.RTEAM = array[Current.TEAM - 1 -(j / 2)].team_name;
+                                Current.BSEED = array[Current.TEAM - (j / 2)].seed;
+                                Current.BTEAM = array[Current.TEAM - (j / 2)].team_name;
+                                update();
+                        }
+                
                 } else {
                         Current.RTEAM = "null";
                         Current.RSEED = -1;
                         update();
                 }
+
                 switch (Current.RLIST[Current.ROUND][j]) {
                         case 'n': output += Bracket.PGAME;
                         break;
