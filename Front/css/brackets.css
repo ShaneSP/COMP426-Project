@@ -1,21 +1,25 @@
-html, body, div, span, ol, ul, li, { 
-    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; 
+html, body, div, span, ol, ul, li, {
+    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
 }
-body { 
+body {
+    background-image: url("https://static.lolwallpapers.net/2014/12/Shurima.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
     font-family: 'Roboto', sans-serif;
-    line-height: 1; 
+    line-height: 1;
 }
 
 #container1 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     position: absolute;
     padding: 10px;
-    width: 70%;
-    left: 10%;
+    width: 100%;
     top: 15%;
+    background-color: #4b4b4b;
+
 }
 
 [class*="round-"] {
@@ -53,12 +57,22 @@ body {
     width: 210px;
     height: 30px;
     line-height: 38px;
-    border-radius: 10px;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     font-size: 12px;
+    letter-spacing: 0.1em;
     text-align: center;
     color: #fff;
     background: #333;
+}
+
+[class*="team-"] {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+[class*="team-"]:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .btn-t {
@@ -66,17 +80,14 @@ body {
     width: 210px;
     height: 30px;
     line-height: 38px;
-    border-radius: 10px;
     font-size: 24px;
-    background: #FF5733;
+    background: #06A0CA;
 }
 
 .btn-b {
-    background: #75FF33;
-    border-radius: 10px;
+    background: #0589AD;
     width: 210px;
     height: 30px;
     line-height: 38px;
     font-size: 24px;
 }
-

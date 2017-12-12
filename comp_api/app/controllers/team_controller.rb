@@ -6,9 +6,9 @@ class TeamController < ApplicationController
 
             tournament_id = Tournament.where(tournament_name: params[:tournament_name]).first.id
 
-            if(Team.where(team_name: params[:team_name], tournament_id: tournament_id).count == 0) &&
-                Team.where(seed: params[:seed], tournament_id: tournament_id).count == 0))
-                
+            if(Team.where(team_name: params[:team_name]).where(tournament_id: tournament_id).first.nil? &&
+                Team.where(seed: params[:seed]).where(tournament_id: tournament_id).first.nil?)
+
                 @team = Team.new
                 @team.team_name = params[:team_name]
                 @team.tournament_id = tournament_id
@@ -16,6 +16,9 @@ class TeamController < ApplicationController
                 @team.save
 
                 render json: @team
+            else
+              render json: {status: false}
+
             end
         else
             render json: {status: false}
@@ -67,7 +70,7 @@ class TeamController < ApplicationController
                 command = "
                 SELECT T.id
                 FROM teams T
-                WHERE T.tournament_id = #{tournament_id} AND T.team_name = #{team_name}
+                WHERE T.tournament_id = #{tournament_id} AND T.team_name = '#{team_name}'
                 "
                 team_id = ActiveRecord::Base.connection.execute(command)[0]["id"]
                 name = params[:summoner_name]

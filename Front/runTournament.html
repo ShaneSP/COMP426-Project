@@ -27,7 +27,6 @@
 
             <div id = "content" style="margin-top: 80px;"></div>
             <div id="container1"></div>
-
             <!-- <div id = "footer">
                 <div class = "div-darkGray" id = "contact">
                     <div id="footercontact">
@@ -92,13 +91,13 @@
                           fen = fenResponse.fen.split(',');
                         }
                         tree = new Tree(fen, $("#container1")[0], response);
-                        $("div[class*=team-]").on("mouseover", function() {
-                          $(this).parent().css('width','240px');
-                        });
-
-                        $('div[class*=btn-]').on("mouseleave", function() {
-                          $(this).css('width','210px');
-                        });
+                        // $("div[class*=team-]").on("mouseover", function() {
+                        //   $(this).parent().css('width','240px');
+                        // });
+                        //
+                        // $('div[class*=btn-]').on("mouseleave", function() {
+                        //   $(this).css('width','210px');
+                        // });
 
                         $(".draggable").draggable({
                           revert: true,
