@@ -4,11 +4,13 @@
     color: white;
 }
 
+#seedform {
+    width: 200px;
+}
 #team1nameform {
     width: 200px;
 }
 #req_team_name  {
-    border: wheat;
     border-style: line;
     border-width: 3px;
 }

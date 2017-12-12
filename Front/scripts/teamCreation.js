@@ -1,13 +1,20 @@
 $(document).ready(function () {
     var teamCreation = new teamCreationButton($("#team")[0]);
+    $.ajax({
+        url: 'http://localhost:3000/get_all_users',
+    success: function(e) {
+    var array = e.names;
+    for(var item in array)  {
+        console.log(item);
+    }
+    }
+    
+    })
 });
 
 var teamCreationButton = function(team) {
 
-var data = [{text: "same"},
-    {text:"as"},
-    {text:"fuck"},
-];
+data = [];
 
 var player1drop = document.getElementById("player1dropid");
 var player2drop = document.getElementById("player2dropid");
@@ -33,7 +40,8 @@ for(var i = 0; i < data.length; i++)    {
 var more_teams_button = document.getElementById("moreTeamsButton");
 var to_tournaments_button = document.getElementById("returnToTournament");
 var team_name_form = $("<form id = \"team1nameform\">Team Name<input class = \"req_team_name\" type=\"text\"></form>");
-$(team).prepend(team_name_form);
+var seed_form = $("<form id = \"seedform\">Seed<input class = \"req_seed\" type=\"number\"></form>");
+$(team).prepend(team_name_form, seed_form);
 
 team_name_form.on("submit", function(e){
     e.preventDefault();
@@ -48,7 +56,9 @@ more_teams_button.onclick = function(e) {
     var player3 = $('#player3dropid option:selected')[0].text;
     var player4 = $('#player4dropid option:selected')[0].text;
     var player5 = $('#player5dropid option:selected')[0].text;   
-    var req_team_name = $(team_name_form).find('.req_team_name').val();    
+    var req_team_name = $(team_name_form).find('.req_team_name').val();  
+    var req_seed = $(seed_form).find('.req_seed').val();
+    var tournament_name = "test";
 if(player1 == "Player" || player2 == "Player" || player3 == "Player" || player4 == "Player" || player5 == "Player"){
     alert("Ya din done forgot a player dipwad");
     return false;
@@ -56,7 +66,7 @@ if(player1 == "Player" || player2 == "Player" || player3 == "Player" || player4 
     alert("You forgot to name the team!");
     return false;
 }   else{
-    submitTeam("test", req_team_name, player1, player2, player3, player4, player5);
+    createAndSubmitTeam(tournament_name, req_team_name, player1, player2, player3, player4, player5, req_seed);
     $(team_name_form).find('.req_team_name').val("");
     alert("team submitted");
     return true;
@@ -73,8 +83,63 @@ to_tournaments_button.onclick = function(e) {
     }
   }
 
-function submitTeam(tournament_name, team_name, player1, player2, player3, player4, player5)   {
-    console.log(team_name);
-    //make ajax call
+function createAndSubmitTeam(tournament_name, team_name, player1, player2, player3, player4, player5, seed)   {
+$.ajax({
+    url: 'http://localhost:3000/create_team?team_name=' + team_name + '&tournament_name=' + tournament_name + '&seed=' + seed,
+    success: function(e){
+    if(!e.status)   {
+      alert("submission failed");
+      return false;
+        } else {
+$.ajax({
+        url: 'http://localhost:3000/recruit_player?tournament_name=' + tournament_name + '&team_name=' + team_name + '&summoner_name=' + player1,
+        success: function(e){
+        if(!e.status)   {
+            alert("submission failed");
+            return false;
+        } 
+    }
+      });
+      $.ajax({
+        url: 'http://localhost:3000/recruit_player?tournament_name=' + tournament_name + '&team_name=' + team_name + '&summoner_name=' + player2,
+        success: function(e){
+        if(!e.status)   {
+            alert("submission failed");
+            return false;
+        } 
+    }
+      });
+      $.ajax({
+        url: 'http://localhost:3000/recruit_player?tournament_name=' + tournament_name + '&team_name=' + team_name + '&summoner_name=' + player3,
+        success: function(e){
+        if(!e.status)   {
+            alert("submission failed");
+            return false;
+        } 
+        
+    }
+      });
+      $.ajax({
+        url: 'http://localhost:3000/recruit_player?tournament_name=' + tournament_name + '&team_name=' + team_name + '&summoner_name=' + player4,
+        success: function(e){
+        if(!e.status)   {
+            alert("submission failed");
+            return false;
+        } 
+    }
+      });
+      $.ajax({
+        url: 'http://localhost:3000/recruit_player?tournament_name=' + tournament_name + '&team_name=' + team_name + '&summoner_name=' + player5,
+        success: function(e){
+        if(!e.status)   {
+            alert("submission failed");
+            return false; 
+        } 
+    }
+      });
+      alert("success");
+    }
+}
+    });
 }
 }
