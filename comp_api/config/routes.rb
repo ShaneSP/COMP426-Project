@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/create_tournament',     to: 'tournament#create_tournament'
   get '/list_tournament',       to: 'tournament#get_list'
   get '/get_teams_and_seed',    to: 'tournament#get_teams_and_seed'
+  get '/set_fen',               to: 'tournament#modify_fen'
+  get '/get_fen',               to: 'tournament#get_fen'
 
   get '/create_team',           to: 'team#create_team'
   get '/list_team',             to: 'team#get_list'
