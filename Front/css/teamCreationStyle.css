@@ -12,7 +12,9 @@
     border-style: line;
     border-width: 3px;
 }
-
+.teamBox    {
+    margin-top: 60px;
+}
 .playerMenu {
     color:black;
 }
