@@ -114,3 +114,25 @@ div h4{
 div#warwick{
     float: right;
 }
+
+div#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+div#footercontact{
+    float: left;
+    margin-left: 5px;
+}
+
+div#footerinfo{
+    float: right;
+    margin-right: 5px;
+}
+
+.div-darkGray {
+    width: 100%;
+    background-color: #7F7F7F;
+    padding-bottom: 75px;
+}

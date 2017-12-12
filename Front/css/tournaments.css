@@ -4,7 +4,7 @@ body {
     "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    background-color: white;
+    background-image: url("http://4.bp.blogspot.com/-V9P0oLq1oh4/VRWjuAaWr-I/AAAAAAAAm4c/jYofvpwYfeU/s1600/SRBackground.png");
     padding: 0;
     margin: 0;
 }
@@ -200,6 +200,7 @@ div#image1{
 
 div h1{
     margin-left: 10px;
+    color: white;
 }
 
 div#footer{

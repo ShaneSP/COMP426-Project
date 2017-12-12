@@ -12,11 +12,6 @@ body {
     margin: 0;
 }
 
-div#background{
-    background-color: white;
-    opacity: 0.6%;
-}
-
 html {
     height: 90%;
 
@@ -124,4 +119,26 @@ div.content{
 div h1,h4{
     text-align: center;
     padding-right: 65px;
+}
+
+div#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+div#footercontact{
+    float: left;
+    margin-left: 5px;
+}
+
+div#footerinfo{
+    float: right;
+    margin-right: 5px;
+}
+
+.div-darkGray {
+    width: 100%;
+    background-color: #7F7F7F;
+    padding-bottom: 75px;
 }
