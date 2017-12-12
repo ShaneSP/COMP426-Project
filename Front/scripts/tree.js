@@ -79,15 +79,20 @@ var Tree = function(fen, container, jsonResponse) {
         for(var j = 0; j < Current.RLIST[Current.ROUND].length; j++) {
                 if(Current.ROUND === 0 && array[Current.TEAM] !== undefined) {
                         Current.RSEED = array[Current.TEAM].seed;
-                        Current.BSEED = array[Current.TEAM+1].seed;
                         Current.RTEAM = array[Current.TEAM].team_name;
-                        Current.BTEAM = array[Current.TEAM+1].team_name;
                         update();
+                        if(Current.ROUND === 0 && array[Current.TEAM+1] !== undefined) {
+                          Current.BSEED = array[Current.TEAM+1].seed;
+                          Current.BTEAM = array[Current.TEAM+1].team_name;
+                          update();
+                        } else {
+                                Current.BTEAM = "null";
+                                Current.BSEED = -1;
+                                update();
+                        }
                 } else {
                         Current.RTEAM = "null";
-                        Current.BTEAM = "null";
                         Current.RSEED = -1;
-                        Current.BSEED = -1;
                         update();
                 }
                 switch (Current.RLIST[Current.ROUND][j]) {

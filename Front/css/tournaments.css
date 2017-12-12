@@ -198,11 +198,6 @@ div#image1{
     padding-left: 2.4rem;
 }
 
-div h1{
-    margin-left: 10px;
-    color: white;
-}
-
 div#footer{
     position: fixed;
     bottom: 0;
@@ -235,4 +230,16 @@ div#image2{
     background-size: 100%;
     image-rendering: -webkit-optimize-contrast;
     height: 400px;
+}
+
+p#page_title{
+  padding-top: 20px;
+  margin-left: 10px;
+  font-size: 40px;
+  float: left;
+  color: white;
+}
+
+div#buffer{
+  margin: 100px;
 }

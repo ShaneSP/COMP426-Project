@@ -75,7 +75,8 @@
         <script>
             window.onload = function() {
               var fen;
-              var name = "Welcome Back Tournament";
+              var name = localStorage.getItem("tournament_name");
+              console.log(name);
               var tree;
               $.ajax({
                 url: "http://localhost:3000/get_teams_and_seed?tournament_name=" + name,

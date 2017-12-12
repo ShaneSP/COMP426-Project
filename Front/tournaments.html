@@ -48,7 +48,9 @@
             </nav>
 
             <div id = "content" style="margin-top: 80px;">
-                <h1>Your Tournaments</h1><br/>
+                <p id="page_title">Your Tournaments</p><br/>
+                <a class="btn btn-warning waves-effect waves-light" href = "tournamentCreation.html" style="float: right; margin-right: 10px;">New Tournament</a>
+                <div id="buffer"></div>
                 <p id="TournamentGet"></p>
 
             </div>
@@ -100,7 +102,7 @@
                             var array = response.result;
                             for(var item in array){
                                 TournamentP.innerHTML = TournamentP.innerHTML + "<div class=\"panel panel-default\" style=\"margin-left: 10px; margin-right: 10px;\" data-tournamentname=\"" + array[item].tournament_name +"\">" + "<div class=\"panel-body\">" + "<div style=\"float: left;\">" + "<b>" + "<u>" + array[item].tournament_name + "</b>" + "</u>" + "<br/>" +
-                                    "<br/>Host Name: " + array[item].summoner_name + "</div>" + "<a href=\"runTournament.html\">" + "<button type=\"button\" class=\"btn btn-success waves-effect waves-light tournaplay\" style=\"float: right;\">" + "<span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\">" + "</span>" + "  Play!" + "</button>" + "</a>" +"<button type=\"button\" class=\"btn btn-primary waves-effect waves-light tournabutton\" style=\"float: right;\">" + "<span class=\"glyphicon glyphicon-flag\" aria-hidden=\"true\">" + "</span>" +" Create Teams" + "</button>" + "</div>" + "</div>";
+                                    "<br/>Host Name: " + array[item].summoner_name + "</div>" + "<a type=\"button\" class=\"btn btn-success waves-effect waves-light tournaplay\" style=\"float: right;\" href=\"runTournament.html\">" + "<span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\">" + "</span>" + "  Play!" + "</a>" +"<a type=\"button\" class=\"btn btn-primary waves-effect waves-light tournabutton\" style=\"float: right;\" href=\"teamCreation.html\">" + "<span class=\"glyphicon glyphicon-flag\" aria-hidden=\"true\">" + "</span>" +" Create Teams" + "</a>" + "</div>" + "</div>";
                             }
                             $(document).on("click",'.tournabutton' , function(){
                                 console.log($(this).parent().parent().data('tournamentname'));
