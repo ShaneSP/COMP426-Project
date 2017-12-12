@@ -98,7 +98,7 @@
                 $.ajax({
                     url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + localStorage.getItem("username") + "?api_key=RGAPI-94506aea-b037-47b6-bc5e-b98ff5ea2f1c",
                     success: function(response){
-                            document.getElementById("user_welcome").innerHTML = "<div class=\"player_title\">Welcome, " + response.name;
+                            document.getElementById("user_welcome").innerHTML = "<div class=\"player_title\">"+ response.name + "</div>";
                             document.getElementById("user_level").innerHTML = "<div class=\"player_text-1\">Summoner Level: " + response.summonerLevel + "</div>";
                             var user_accountid = response.accountId;
 

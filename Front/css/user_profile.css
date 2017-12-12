@@ -330,7 +330,7 @@ div#footerinfo{
     text-transform: uppercase;
     font-family: 'Playfair Display', serif;
     letter-spacing: .4em;
-    font-size: 24px;
+    font-size: 22px;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     text-indent: .3em;
   }
@@ -356,15 +356,19 @@ div#footerinfo{
   }
 
   .player_text-1 {
-    top: 15%;
-  }
-
-  .player_text-2 {
     top: 25%;
   }
 
-  .player_text-3 {
+  .player_text-2 {
     top: 35%;
+  }
+
+  .player_text-3 {
+    top: 45%;
+  }
+
+  .player_text-a{
+      top: 10%;
   }
 
 
