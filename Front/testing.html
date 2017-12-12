@@ -36,7 +36,7 @@
                 <input type="text"><br>
                 <input type="button" value="Submit" id = "submit" onClick = "username_return()">
             </form>
-        <div id="result"></div>
+        <p id="result"></p>
         <script>
             
             function username_return(){
@@ -46,7 +46,7 @@
                 localStorage.setItem("user_profile", "Cielka")
             }
 
-            document.getElementById("result").innerHTML = localStorage.getItem("username");
+            document.getElementById("result").innerHTML = localStorage.getItem("tournament_name");
             document.getElementById("login_result").innerHTML = localStorage.getItem("login_state");
             document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
             document.getElementById("user").innerHTML = localStorage.getItem("user_profile");

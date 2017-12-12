@@ -12,7 +12,7 @@
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/falsestyle.css">
+        <link rel="stylesheet" type="text/css" href="css/tournaments.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 
@@ -37,8 +37,8 @@
                             <img id = "neopetAvatar" src="assets/main_icon_resized.jpg">
                         </a>
                     </li>
-                    <li class="highlight"> <a id="toptab" class="active" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                    <li class="highlight"> <a id="toptab" href="tournaments.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
+                    <li class="highlight"> <a id="toptab" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+                    <li class="highlight"> <a id="toptab" class="active" href="tournaments.html"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> Tournaments</a></li>
 
                     <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="logout_result"></div></a></li>
                     <li class = "right" id = "signout"> <a id="toptab" class="signout" href="index.html" onClick = "clear_state()"><div id="user"></div></a></li>
@@ -48,7 +48,8 @@
             </nav>
 
             <div id = "content" style="margin-top: 80px;">
-
+                <h1>Your Tournaments</h1><br/>
+                <p id="TournamentGet"></p>
 
             </div>
 
@@ -73,6 +74,8 @@
                 localStorage.setItem("login_state", "Log In");
                 localStorage.setItem("logout_state", "");
                 localStorage.setItem("user_profile", "");
+                localStorage.setItem("tournament_name", "");
+                localStorage.setItem("summoner_name", "");
             }
 
             document.getElementById("result").innerHTML = localStorage.getItem("username");
@@ -80,37 +83,51 @@
             document.getElementById("logout_result").innerHTML = localStorage.getItem("logout_state");
             document.getElementById("user").innerHTML = localStorage.getItem("user_profile");
 
-var jsonResponseFromServer = {
-  "result": [
-    {
-      "tournament_name": "first tournament",
-      "summoner_name": "Silver Bunny"
-    },
-    {
-      "tournament_name": "Defense of the of Legends",
-      "summoner_name": "Silver Bunny"
-    }
-  ]
-}
+            var jsonResponseFromServer = {
+            "result": [
+                {
+                "tournament_name": "First Tournament",
+                "summoner_name": "Silver Bunny"
+                },
+                {
+                "tournament_name": "Defense of the of Legends",
+                "summoner_name": "Silver Bunny"
+                }
+            ]
+            }
 
             $(document).ready(function(){
-              $.ajax({
-                url: "http://localhost:3000/list_tournament?summoner_name=" + localStorage.getItem("username"),
-                success: function(response){
-                  console.log(response)
-                  if (response.status === false) {
-                    console.log("false");
-                  } else {
-                    var array = response.result;
+            //   $.ajax({
+            //     url: "http://localhost:3000/list_tournament?summoner_name=" + localStorage.getItem("username"),
+            //     success: function(response){
+            //       console.log(response)
+            //       if (response.status === false) {
+            //         console.log("false");
+            //         localStorage.setItem("tournament_load", "You have no tournaments!");
+            //       } else {
+            //         var array = response.result;
+            //         for(var item in array){
+            //           console.log(array[item].tournament_name);
+            //           console.log(array[item].summoner_name);
+            //         }
+            //       }
+
+
+            //     }
+            //   })
+
+            TournamentP = document.getElementById("TournamentGet");
+             var array = jsonResponseFromServer.result;
                     for(var item in array){
-                      console.log(array[item].tournament_name);
-                      console.log(array[item].summoner_name);
+
+                        TournamentP.innerHTML = TournamentP.innerHTML + "<div class=\"panel panel-default\" style=\"margin-left: 10px; margin-right: 10px;\" data-tournamentname=\"" + array[item].tournament_name +"\">" + "<div class=\"panel-body\">" + "<div style=\"float: left;\">" + "<b>" + "<u>" + array[item].tournament_name + "</b>" + "</u>" + "<br/>" +
+                        "<br/>Summoner Name: " + array[item].summoner_name + "</div>" + "<button id=\"login_button\" type=\"button\" class=\"btn btn-success waves-effect waves-light\" style=\"float: right;\">" + "<span class=\"glyphicon glyphicon-play\" aria-hidden=\"true\">" + "</span>" + "  Play!" + "</button>" + "<button id=\"login_button\" type=\"button\" class=\"btn btn-primary waves-effect waves-light tournabutton\" style=\"float: right;\">" + "<span class=\"glyphicon glyphicon-flag\" aria-hidden=\"true\">" + "</span>" +" Create Teams" + "</button>" + "</div>" + "</div>";
                     }
-                  }
-
-
-                }
-              })
+                    $(document).on("click",'.tournabutton' , function(){
+                        console.log($(this).parent().parent().data('tournamentname'));
+                            localStorage.setItem("tournament_name", $(this).parent().parent().data('tournamentname'));
+                            localStorage.setItem("summoner_name", array[item].summoner_name);
+                     })
             });
 
         </script>
